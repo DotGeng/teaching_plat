@@ -22,6 +22,7 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.winter.model
