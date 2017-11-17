@@ -25,7 +25,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.winter.model
+  type-aliases-package: cn.cqupt.model
 #pagehelper分页插件
 pagehelper:
     helperDialect: mysql
