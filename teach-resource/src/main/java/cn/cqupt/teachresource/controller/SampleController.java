@@ -1,6 +1,9 @@
 package cn.cqupt.teachresource.controller;
 
+
 import cn.cqupt.model.User;
+import cn.cqupt.teachfaced.service.StudentLoadService;
+import cn.cqupt.teachresource.redis.RedisClient;
 import cn.cqupt.teachresource.redis.RedisService;
 import cn.cqupt.teachresource.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +28,8 @@ public class SampleController {
 
     @RequestMapping("/getRedisValue")
     public String getRedisValue() {
-        String res = redisService.getRedisClient().get("name");
+        RedisClient redisClient = redisService.getRedisClient();
+        String res = redisClient.get("name");
         return res == null ? "缓存暂无数据": res;
     }
 

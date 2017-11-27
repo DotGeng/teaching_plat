@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.cqupt</groupId>
-	<artifactId>teach-sso</artifactId>
+	<artifactId>teach-faced</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>teach-sso</name>
+	<name>teach-faced</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -17,12 +17,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../Springboot-parent/pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
+
 	<dependencies>
-		<dependency>
-			<groupId>cn.cqupt</groupId>
-			<artifactId>teach-faced</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -86,11 +83,11 @@
 			<version>1.1.0</version>
 		</dependency>
 		<!--配置热启动-->
-		<!--<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
-		</dependency>-->
+		</dependency>
 
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -130,5 +127,4 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
 </project>

@@ -1,4 +1,4 @@
-package cn.cqupt.mapper;
+package cn.cqupt.teachresource.mapper;
 
 import cn.cqupt.model.User;
 

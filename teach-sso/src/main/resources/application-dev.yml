@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 spring:
   datasource:
     name: teaching_platform
@@ -22,19 +22,8 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
-##  dubbo:
-##     application:
-##       name: consumer
-##     registry:
-##       address: zookeeper://192.168.1.128:2181
-##     scan: cn.cqupt.teachresource
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: cn.cqupt.model
-#pagehelper分页插件
-pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
+
