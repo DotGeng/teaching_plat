@@ -15,12 +15,13 @@ import java.util.List;
 public class StudentDaoImpl implements StudentDao {
     @Autowired
     private StudentMapper studentMapper;
+
     @Override
     public Student getStudentByStudentNo(String studentNo) {
         StudentExample studentExample = new StudentExample();
         CriteriaUtil.getStudentCriteria(studentExample).andStudentNoEqualTo(studentNo);
         List<Student> studentList = studentMapper.selectByExample(studentExample);
-        if(studentList != null && studentList.size() > 0) {
+        if (studentList != null && studentList.size() > 0) {
             return studentList.get(0);
         }
         return null;
@@ -31,7 +32,7 @@ public class StudentDaoImpl implements StudentDao {
         StudentExample studentExample = new StudentExample();
         CriteriaUtil.getStudentCriteria(studentExample).andStudentNoEqualTo(studentNo).andStudentPswdEqualTo(password);
         List<Student> studentList = studentMapper.selectByExample(studentExample);
-        if(studentList != null && studentList.size() > 0) {
+        if (studentList != null && studentList.size() > 0) {
             return studentList.get(0);
         }
         return null;

@@ -1,4 +1,4 @@
-package cn.cqupt.teachresource.Dao;
+package cn.cqupt.teachresource.dao;
 
 import cn.cqupt.model.User;
 

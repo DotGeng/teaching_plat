@@ -2,7 +2,7 @@ package cn.cqupt.teachresource.service.impl;
 
 import cn.cqupt.model.User;
 import cn.cqupt.teachfaced.service.StudentLoadService;
-import cn.cqupt.teachresource.Dao.TestDao;
+import cn.cqupt.teachresource.dao.TestDao;
 import cn.cqupt.teachresource.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

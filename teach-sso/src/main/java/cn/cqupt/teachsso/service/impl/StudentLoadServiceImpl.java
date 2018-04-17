@@ -42,7 +42,4 @@ public class StudentLoadServiceImpl implements StudentLoadService {
         return redisService.del(userNo);
     }
 
-
-
-
 }
