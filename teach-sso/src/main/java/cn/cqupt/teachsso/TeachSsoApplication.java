@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
-
 @SpringBootApplication
 @ComponentScan("cn.cqupt.teachsso")
 @MapperScan("cn.cqupt.teachsso.mapper")//将项目中对应的mapper类的路径加进来就可以了

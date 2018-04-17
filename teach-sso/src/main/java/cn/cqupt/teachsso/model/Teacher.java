@@ -1,43 +1,43 @@
 package cn.cqupt.teachsso.model;
 
 public class Teacher {
-    private Integer teacherid;
+    private Integer teacherId;
 
-    private String teachername;
+    private String teacherName;
 
-    private String teacherpw;
+    private String teacherPswd;
 
-    private Integer teacherrole;
+    private String teacherRole;
 
-    public Integer getTeacherid() {
-        return teacherid;
+    public Integer getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacherid(Integer teacherid) {
-        this.teacherid = teacherid;
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
     }
 
-    public String getTeachername() {
-        return teachername;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setTeachername(String teachername) {
-        this.teachername = teachername == null ? null : teachername.trim();
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName == null ? null : teacherName.trim();
     }
 
-    public String getTeacherpw() {
-        return teacherpw;
+    public String getTeacherPswd() {
+        return teacherPswd;
     }
 
-    public void setTeacherpw(String teacherpw) {
-        this.teacherpw = teacherpw == null ? null : teacherpw.trim();
+    public void setTeacherPswd(String teacherPswd) {
+        this.teacherPswd = teacherPswd == null ? null : teacherPswd.trim();
     }
 
-    public Integer getTeacherrole() {
-        return teacherrole;
+    public String getTeacherRole() {
+        return teacherRole;
     }
 
-    public void setTeacherrole(Integer teacherrole) {
-        this.teacherrole = teacherrole;
+    public void setTeacherRole(String teacherRole) {
+        this.teacherRole = teacherRole == null ? null : teacherRole.trim();
     }
 }
