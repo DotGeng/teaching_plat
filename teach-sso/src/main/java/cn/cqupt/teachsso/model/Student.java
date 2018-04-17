@@ -1,46 +1,60 @@
 package cn.cqupt.teachsso.model;
 
-public class Student extends StudentKey {
-    private String studclass;
+import java.util.Date;
 
-    private String studentname;
+public class Student {
+    private Integer studentId;
 
-    private String studentpw;
+    private String studentNo;
+
+    private String studentName;
+
+    private String studentPswd;
 
     private String major;
 
     private String colledge;
 
-    private Integer passed;
+    private String passed;
 
-    private Integer score;
+    private Double score;
 
-    private Integer examtimes;
+    private Integer examTimes;
 
-    private Integer ischeated;
+    private Date examTime;
 
-    public String getStudclass() {
-        return studclass;
+    private Integer isCheated;
+
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setStudclass(String studclass) {
-        this.studclass = studclass == null ? null : studclass.trim();
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
 
-    public String getStudentname() {
-        return studentname;
+    public String getStudentNo() {
+        return studentNo;
     }
 
-    public void setStudentname(String studentname) {
-        this.studentname = studentname == null ? null : studentname.trim();
+    public void setStudentNo(String studentNo) {
+        this.studentNo = studentNo == null ? null : studentNo.trim();
     }
 
-    public String getStudentpw() {
-        return studentpw;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setStudentpw(String studentpw) {
-        this.studentpw = studentpw == null ? null : studentpw.trim();
+    public void setStudentName(String studentName) {
+        this.studentName = studentName == null ? null : studentName.trim();
+    }
+
+    public String getStudentPswd() {
+        return studentPswd;
+    }
+
+    public void setStudentPswd(String studentPswd) {
+        this.studentPswd = studentPswd == null ? null : studentPswd.trim();
     }
 
     public String getMajor() {
@@ -59,35 +73,43 @@ public class Student extends StudentKey {
         this.colledge = colledge == null ? null : colledge.trim();
     }
 
-    public Integer getPassed() {
+    public String getPassed() {
         return passed;
     }
 
-    public void setPassed(Integer passed) {
-        this.passed = passed;
+    public void setPassed(String passed) {
+        this.passed = passed == null ? null : passed.trim();
     }
 
-    public Integer getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 
-    public Integer getExamtimes() {
-        return examtimes;
+    public Integer getExamTimes() {
+        return examTimes;
     }
 
-    public void setExamtimes(Integer examtimes) {
-        this.examtimes = examtimes;
+    public void setExamTimes(Integer examTimes) {
+        this.examTimes = examTimes;
     }
 
-    public Integer getIscheated() {
-        return ischeated;
+    public Date getExamTime() {
+        return examTime;
     }
 
-    public void setIscheated(Integer ischeated) {
-        this.ischeated = ischeated;
+    public void setExamTime(Date examTime) {
+        this.examTime = examTime;
+    }
+
+    public Integer getIsCheated() {
+        return isCheated;
+    }
+
+    public void setIsCheated(Integer isCheated) {
+        this.isCheated = isCheated;
     }
 }
