@@ -1,6 +1,12 @@
 server:
   port: 8081
 spring:
+  web:
+    upload-path: F:/image/
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${spring.web.upload-path}
   datasource:
     name: teaching_platform
     url: jdbc:mysql://127.0.0.1:3306/teaching_platform
