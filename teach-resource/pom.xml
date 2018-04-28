@@ -24,6 +24,16 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>cn.cqupt</groupId>
+            <artifactId>teach-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--        <dependency>
+                    <groupId>cn.cqupt</groupId>
+                    <artifactId>teach-sso</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                </dependency>-->
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>

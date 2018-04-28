@@ -10,9 +10,5 @@ public interface StudentLoadService {
 
     public boolean studentLogout(String userNo);
 
-    public boolean teacherIsLoaded(String teacherName);
 
-    public String teacherLoadAction(String teacherName, String password);
-
-    public boolean teacherLogout(String teacherName);
 }

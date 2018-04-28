@@ -1,0 +1,98 @@
+<div id="manage_tool" style="padding: 5px">
+    <div>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="ture" , onclick="manage_tool.add();">添加</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="ture" , onclick="manage_tool.edit();">修改</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="ture" ,
+           onclick="manage_tool.remove();">删除</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="ture" ,style="display: none"
+           onclick="manage_tool.reload();">刷新</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-redo" plain="ture" , style="" onclick="manage_tool.redo();">取消选择</a>
+    </div>
+    <div style="padding: 0 0 0 7px; color: #333;">
+        查询文章主题:<input id="articleTitle" type="text" class="textbox" name="article" style="width: 110px"/>
+        创建时间从：<input id="createTimeBegin" type="text" class="easyui-datebox" name="data-from"  style="width:110px"/>
+        到：<input id="createTimeEnd" type="text" class="easyui-datebox"  name="data-to" style="width:110px"/>
+        <a href="javascripr:void(0);" id="searchArticle" class="easyui-linkbutton" iconCls="icon-search" >查询</a>
+    </div>
+</div>
+<table id="teacher_article_manager"></table>
+<!--<div id="dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;">-->
+<div id="article_add_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="article_add" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <p>文章主题:<input id="articleName" class="text" type="text" name="input_add" data-options="required:true"
+                       style="width: 200px;"/>
+        </p>
+        <p>文章描述:<textarea id="articleDscrp" class="text-area" name="message" style="width: 200px;"/></p>
+
+    </form>
+    <table>
+        <tr>
+            <th><!-- 上传文件请应一个非常纯净的form，避免出错-->
+                <form id="uploadForm" enctype="multipart/form-data"
+                      style="margin:0;padding: 5px 0 0 25px;color: #333;Float:left ">
+                    <p>上传文件:<input id="file" type="file" style="width: 150px" name="file"/></p>
+                </form>
+            </th>
+            <th>
+                <div id="upload_file_form" style="margin:0;">
+                    <button value="上传" id="file_upload">上传</button>
+                </div>
+            </th>
+        </tr>
+        <tr id="file_url_fiv_row" style="display: none;margin:0;padding: 5px 0 0 25px;">
+            <td align="right">
+                <div align="right">
+                    <a id="fileUrl" download="">查看文件</a>
+                </div>
+            </td>
+            <td>
+                <div align="right">
+                    <a id="deletFileUrl" href="javascript:void(0);">删除文件</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p style="display: none">文件路径:<input type="text" data-options="required:true" id="file--edit-   path"/></p>
+</div>
+
+<div id="article_edit_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="article_edit" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <input id="id" class="text" type="text" name="input_add" data-options=""
+               style="width: 200px;display: none" disabled="disabled"/>
+        <p>文章主题:<input id="articleEditName" class="text" type="text" name="input_add" data-options=""
+                       style="width: 200px;"/>
+        </p>
+        <p>文章描述:<textarea id="articleEditDscrp" class="text-area" name="message" style="width: 200px;"/></p>
+
+    </form>
+    <table>
+        <tr>
+            <th><!-- 上传文件请应一个非常纯净的form，避免出错-->
+                <form id="uploadEditForm" enctype="multipart/form-data"
+                      style="margin:0;padding: 5px 0 0 25px;color: #333;Float:left ">
+                    <p>上传文件:<input id="fileEdit" type="file" style="width: 150px" name="file"/></p>
+                </form>
+            </th>
+            <th>
+                <div id="upload_file_Edit_form" style="margin:0;">
+                    <button value="上传" id="file_edit_upload">上传</button>
+                </div>
+            </th>
+        </tr>
+        <tr id="file_url_eidt_fiv_row" style="display: none;margin:0;padding: 5px 0 0 25px;">
+            <td align="right">
+                <div align="right">
+                    <a id="fileEidtUrl" download="">查看文件</a>
+                </div>
+            </td>
+            <td>
+                <div align="right">
+                    <a id="deletFileEditUrl" href="javascript:void(0);">删除文件</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p style="display: none">文件路径:<input type="text" data-options="required:true" id="file-path"/></p>
+</div>
+
+<script type="text/javascript" src="/js/teacher_article_manager.js"></script>

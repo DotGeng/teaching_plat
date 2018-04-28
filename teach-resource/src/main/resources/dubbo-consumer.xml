@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://code.alibabatech.com/schema/dubbo
@@ -15,12 +16,15 @@
 
     &lt;!&ndash; 用户服务接口 &ndash;&gt;
     <dubbo:reference id="studentLoadService" interface="cn.cqupt.teachfaced.service.StudentLoadService"  check="false" />-->
-    <dubbo:annotation package="cn.cqupt.*" />
+    <dubbo:annotation package="cn.cqupt.*"/>
 
     <dubbo:application name="dubboConsumer"></dubbo:application>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://192.168.0.105:2181" check="false"></dubbo:registry>
+    <dubbo:registry address="zookeeper://192.168.0.107:2181" check="false"></dubbo:registry>
     <!-- 要引用的服务 -->
-    <dubbo:reference interface="cn.cqupt.teachfaced.service.StudentLoadService" id="studentLoadService"></dubbo:reference>
+    <dubbo:reference interface="cn.cqupt.teachfaced.service.StudentLoadService"
+                     id="studentLoadService"></dubbo:reference>
+    <dubbo:reference interface="cn.cqupt.teachfaced.service.TeacherLoadService"
+                     id="teacherLoadService"></dubbo:reference>
 
 </beans>

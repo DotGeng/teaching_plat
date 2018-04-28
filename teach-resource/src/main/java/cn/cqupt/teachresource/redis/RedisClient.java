@@ -4,7 +4,9 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+
 public class RedisClient {
+
     private JedisPool pool = null;
 
     public RedisClient(String ip, int prot) {
@@ -23,6 +25,7 @@ public class RedisClient {
             pool = new JedisPool(config, ip, prot, 5000);
         }
     }
+
     public RedisClient(String ip, int prot, String password) {
         if (pool == null) {
             JedisPoolConfig config = new JedisPoolConfig();
@@ -43,9 +46,8 @@ public class RedisClient {
     }
 
     /**
-     *
-     * @param ip 服务器地址
-     * @param prot 端口号
+     * @param ip       服务器地址
+     * @param prot     端口号
      * @param database 选着redis的第几个库， 默认的第0g， redis默认具有16个库，  不建议选着这个方法
      */
     public RedisClient(String ip, int prot, int database) {
@@ -109,6 +111,29 @@ public class RedisClient {
     }
 
     /**
+     * 回收Jedis对象资源
+     *
+     * @param jedis
+     */
+    public synchronized void returnResource(Jedis jedis) {
+        if (jedis != null) {
+            pool.returnResource(jedis);
+        }
+    }
+
+    /**
+     * Jedis对象出异常的时候，回收Jedis对象资源
+     *
+     * @param jedis
+     */
+    public synchronized void returnBrokenResource(Jedis jedis) {
+        if (jedis != null) {
+            pool.returnBrokenResource(jedis);
+        }
+
+    }
+
+    /**
      * <p>
      * 通过key获取储存在redis中的value
      * </p>
@@ -128,15 +153,58 @@ public class RedisClient {
         } catch (Exception e) {
             pool.returnBrokenResource(jedis);
             e.printStackTrace();
-        } /*finally {
-            returnResource(pool, jedis);
-        }*/
+        } finally {
+            returnResource(jedis);
+        }
         return value;
     }
 
-    public void  set(String key, String value) {
+    /**
+     * 把key和value存到redis中
+     * @param key
+     * @param value
+     */
+    public String set(String key, String value) {
         Jedis jedis = null;
         jedis = pool.getResource();
-        jedis.set(key, value);
+        String res = jedis.set(key, value);
+        return res;
+    }
+
+    /**
+     * 把key和value存到redis中,并设置过期时间
+     * @param key
+     * @param value
+     * @param period
+     */
+    public Long set(String key, String value, Integer period) {
+        Jedis jedis = null;
+        jedis = pool.getResource();
+        String resString = jedis.set(key, value);
+        Long resLong = jedis.expire(key, period);
+        if(resString != null && resLong != null && resLong > 0) {
+            return 1L;
+        }else {
+            return -1L;
+        }
+    }
+
+    /**
+     * 给特定键设置过期时间
+     * @param key
+     */
+    public void expire(String key, Integer period) {
+        Jedis jedis = pool.getResource();
+        jedis.expire(key, period);
+    }
+
+    public boolean del(String key) {
+        Jedis jedis = pool.getResource();
+
+        if(jedis.del(key) > 0) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }

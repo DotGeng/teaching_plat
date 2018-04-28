@@ -17,11 +17,11 @@
     <packaging>jar</packaging>
     
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>RELEASE</version>
-        </dependency>
+        </dependency>-->
         <!-- Apache工具组件 -->
         <dependency>
             <groupId>commons-net</groupId>
@@ -40,11 +40,7 @@
             <version>RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.jaxrs</groupId>
-            <artifactId>jackson-jaxrs-json-provider</artifactId>
-            <version>RELEASE</version>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>

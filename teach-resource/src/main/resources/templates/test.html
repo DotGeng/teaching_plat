@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>java</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<body>
+<div class="n-head">
+    <div class="g-doc f-cb">
+        <div class="user">
+            卖家你好，<span id="salerName" class="name">mmmmm</span>！<a id="logout" href="javascript:void(0);">[退出]</a>
+            <a id="login" href="javascript:void(0);">[请登录]</a>
+        </div>
+        <ul class="nav">
+            <li><a href="/static/saler/index">首页</a></li>
+            <li><a href="/static/show/publish">发布</a></li>
+        </ul>
+    </div>
+</div>
+<div class="g-doc">
+    <div class="m-tab m-tab-fw m-tab-simple f-cb">
+        <h2>内容编辑</h2>
+    </div>
+    <div>
+        <!--<form id="uploadForm" enctype="multipart/form-data">
+ 更改图片:<input id="file" class="u-ipt ipt" type="file" name="file"/>
+        </form>-->
+
+    </div>
+    <div>
+        <button id="upload" class="u-btn u-btn-primary u-btn-lg">上传图片</button>
+    </div>
+    <div class="n-public">
+        <form class="m-form m-form-ht" id="form" method="post" action="./editSubmit.html" onsubmit="return false;"
+              autocomplete="off">
+            <div class="fmitem">
+                <label class="fmlab">标题：</label>
+                <div class="fmipt">
+                    <input class="u-ipt ipt" id="title" name="title" value="标题" placeholder="2-80字符"/>
+                </div>
+            </div>
+            <div class="fmitem">
+                <label class="fmlab">摘要：</label>
+                <div class="fmipt">
+                    <input class="u-ipt ipt" id="goodsAbstract" name="goodsAbstract" value="摘要" placeholder="2-140字符" ／>
+                </div>
+            </div>
+            <div class="fmitem">
+                <label class="fmlab">图片：</label>
+                <div class="fmipt">
+                    <input class="u-ipt ipt" id="pictureUrl" name="pictureUrl"
+                           value="http://nec.netease.com/img/s/1.jpg" placeholder="图片地址"/>
+                </div>
+            </div>
+            <div class="fmitem">
+                <label class="fmlab">正文：</label>
+                <div class="fmipt">
+                    <textarea class="u-ipt" id="content" name="content" rows="10" placeholder="2-1000个字符">全文</textarea>
+                </div>
+            </div>
+            <div class="fmitem">
+                <label class="fmlab">价格：</label>
+                <div class="fmipt">
+                    <input id="goodsPrice" class="u-ipt price" name="goodsPrice" value="123.9"/>元
+                </div>
+            </div>
+            <div class="fmitem fmitem-nolab fmitem-btn">
+                <div class="fmipt">
+                    <button type="submit" class="u-btn u-btn-primary u-btn-lg">保 存</button>
+                </div>
+            </div>
+        </form>
+        <span class="imgpre"><img src="http://nec.netease.com/img/l/1.jpg" alt="" id="imgpre"></span>
+    </div>
+</div>
+<div class="n-foot">
+    <p>版权所有：网易云课堂<a href="http://mooc.study.163.com/smartSpec/detail/85002.htm">Java开发工程师(Web方向)</a>微专业团队</p>
+</div>
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="/js/test.js"></script>
+<script type="text/javascript" src="/js/title4saler.js"></script>
+</body>
+</html>

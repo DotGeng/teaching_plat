@@ -22,10 +22,12 @@
 
     <!-- 提供方应用名称信息，这个相当于起一个名字,可以从dubbo管理页面比较清晰看出是哪个应用暴露出来的 -->
     <dubbo:application name="dubboServer"></dubbo:application>
-    <dubbo:annotation package="cn.cqupt.teachsso.*" />
+    <dubbo:annotation package="cn.cqupt.teachsso.*"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://192.168.0.105:2181" check="false" subscribe="false" register=""></dubbo:registry>
+    <dubbo:registry address="zookeeper://192.168.0.107:2181" check="false" subscribe="false"
+                    register=""></dubbo:registry>
     <!-- 要暴露的服务接口 -->
-    <dubbo:service interface="cn.cqupt.teachfaced.service.StudentLoadService" ref="studentLoadService" />
+    <dubbo:service interface="cn.cqupt.teachfaced.service.StudentLoadService" ref="studentLoadService"/>
+    <dubbo:service interface="cn.cqupt.teachfaced.service.TeacherLoadService" ref="teacherLoadService"/>
 
 </beans>

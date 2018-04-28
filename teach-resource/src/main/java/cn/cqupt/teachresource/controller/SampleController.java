@@ -2,8 +2,6 @@ package cn.cqupt.teachresource.controller;
 
 
 import cn.cqupt.model.User;
-import cn.cqupt.teachfaced.service.StudentLoadService;
-import cn.cqupt.teachresource.redis.RedisClient;
 import cn.cqupt.teachresource.redis.RedisService;
 import cn.cqupt.teachresource.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +19,7 @@ public class SampleController {
     public User getUserById() {
         return testService.getUseByPrimary();
     }
+
     @RequestMapping("/hello")
     public String index() {
         return "Hello World";
@@ -28,14 +27,15 @@ public class SampleController {
 
     @RequestMapping("/getRedisValue")
     public String getRedisValue() {
-        RedisClient redisClient = redisService.getRedisClient();
+       /* RedisClient redisClient = redisService.getRedisClient();
         String res = redisClient.get("name");
-        return res == null ? "缓存暂无数据": res;
+        return res == null ? "缓存暂无数据" : res;*/
+        return null;
     }
 
     @RequestMapping("/setValueToRedis")
     public String setValueToRedis() {
-        redisService.getRedisClient().set("name","jerry");
+        //redisService.getRedisClient().set("name", "jerry");
         return "ok";
     }
 }
