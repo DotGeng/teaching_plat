@@ -9,6 +9,10 @@ public class VisitorRecord {
 
     private Date visitTime;
 
+    private String userName;
+
+    private Integer role;
+
     public Integer getId() {
         return id;
     }
@@ -31,5 +35,21 @@ public class VisitorRecord {
 
     public void setVisitTime(Date visitTime) {
         this.visitTime = visitTime;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
 }

@@ -4,7 +4,9 @@ import cn.cqupt.teachresource.model.VisitorRecord;
 import cn.cqupt.teachresource.model.VisitorRecordExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface VisitorRecordMapper {
     int countByExample(VisitorRecordExample example);
 

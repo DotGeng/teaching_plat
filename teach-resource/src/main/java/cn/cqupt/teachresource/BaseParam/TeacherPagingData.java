@@ -3,7 +3,7 @@ package cn.cqupt.teachresource.BaseParam;
 /**
  * Created by YukunGeng on 2018/4/23.
  */
-public class PagingData {
+public class TeacherPagingData {
     private Integer page;
     private Integer rows;
     private String sort;

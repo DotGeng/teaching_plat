@@ -1,0 +1,31 @@
+<div style="margin:0 auto;">
+    <p>用户名:<input id="teacherName" class="easyui-textbox" disabled="disabled"/></p>
+    <p>角&nbsp;&nbsp;&nbsp;&nbsp;色:<input class="easyui-textbox" value="普通教师" disabled="disabled"/></p>
+    <div id="btn">
+        <a id="editAccountInfoButton" class="easyui-linkbutton" iconCls="icon-edit"
+           style="width:100px;height:32px;margin-left: 50px">修改信息</a>
+    </div>
+</div>
+
+<!--<div id="account_edit_div" class="easyui-dialog" title="修改账户信息" style="width:400px;">
+    <p>用户名<input/></p>
+
+</div>-->
+<form id="account_edit_form" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+    <p style="display: none">id:<input id="id" name="teacherId" disabled="disabled" class="easyui-textbox"
+                                       style="width: 200px;"/></p>
+    <p>用户名:<input id="from_user_name" disabled="disabled" class="easyui-textbox" style="width: 200px;"/></p>
+    <p>密&nbsp;&nbsp;&nbsp;&nbsp;码:<input id="from_user_password" class="easyui-textbox"
+                                         style="width: 200px;"/></p>
+    <p>再次输入密码:<input id="from_user_password_again" class="easyui-textbox"
+                     style="width: 200px;"/></p>
+    <p>
+        角&nbsp;&nbsp;&nbsp;&nbsp;色:<select id="teacherRole" class="easyui-combobox" name="teacherRole"
+                                           style="width: 200px;">
+        <option value="1">普通教师</option>
+        <option value="2">超级管理员</option>
+    </select>
+    </p>
+</form>
+
+<script type="text/javascript" src="/js/account_manager.js"></script>

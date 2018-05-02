@@ -29,4 +29,14 @@ public class FrontController {
     public String mytest() {
         return "/test";
     }
+
+    @RequestMapping("/static/accountInfo")
+    public String accountInfo() {
+        return "/account_manager";
+    }
+
+    @RequestMapping("/static/visitors")
+    public String visitors() {
+        return "/visitor_account";
+    }
 }

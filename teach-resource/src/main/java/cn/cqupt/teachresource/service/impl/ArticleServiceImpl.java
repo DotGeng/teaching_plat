@@ -1,13 +1,11 @@
 package cn.cqupt.teachresource.service.impl;
 
 
-import cn.cqupt.teachresource.BaseParam.ArticleResponse;
-import cn.cqupt.teachresource.BaseParam.PagingData;
+import cn.cqupt.teachresource.BaseParam.TeacherPagingData;
 import cn.cqupt.teachresource.BaseParam.PagingResponse;
 import cn.cqupt.teachresource.dao.ArticleDao;
 import cn.cqupt.teachresource.model.Article;
 import cn.cqupt.teachresource.service.ArticleService;
-import cn.cqupt.teachresource.util.ArticleUtils;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDao articleDao;
 
     @Override
-    public PagingResponse getArticles(PagingData pagedate) {
+    public PagingResponse getArticles(TeacherPagingData pagedate) {
         //String orderBy = "modify_time" + " desc";//按照排序字段 倒序 排序
         PageHelper.startPage(pagedate.getPage(), pagedate.getRows());
         PageHelper.orderBy("modify_time desc");

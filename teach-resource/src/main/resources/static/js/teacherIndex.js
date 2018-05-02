@@ -1,6 +1,7 @@
 (function (w, d, u) {
     var page = {
         init: function () {
+            $('#userNameP').html(sessionStorage.getItem('userName'));
             $('#nav').tree({
                 url: '/teacher/nav/create',
                 line: true,
@@ -9,7 +10,6 @@
                         $(data).each(function () {
                             if (this.state == 'closed') {
                                 $('#nav').tree('expandAll');
-
                             }
                         });
 

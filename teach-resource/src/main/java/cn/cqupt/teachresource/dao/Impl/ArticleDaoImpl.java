@@ -1,7 +1,7 @@
 package cn.cqupt.teachresource.dao.Impl;
 
 import cn.cqupt.teachresource.BaseParam.ArticleResponse;
-import cn.cqupt.teachresource.BaseParam.PagingData;
+import cn.cqupt.teachresource.BaseParam.TeacherPagingData;
 import cn.cqupt.teachresource.BaseParam.PagingResponse;
 import cn.cqupt.teachresource.dao.ArticleDao;
 import cn.cqupt.teachresource.mapper.ArticleMapper;
@@ -28,26 +28,26 @@ public class ArticleDaoImpl implements ArticleDao {
     private ArticleMapper articleMapper;
 
     @Override
-    public PagingResponse getArticleList(PagingData pagingData) {
+    public PagingResponse getArticleList(TeacherPagingData teacherPagingData) {
         ArticleExample example = new ArticleExample();
         ArticleExample.Criteria criteria = CriteriaUtils.getCriteria(example);
-        if (pagingData.getArticleName() != null && pagingData.getArticleName() != "") {
-            criteria.andArticleNameLike("%" + pagingData.getArticleName() + "%");
+        if (teacherPagingData.getArticleName() != null && teacherPagingData.getArticleName() != "") {
+            criteria.andArticleNameLike("%" + teacherPagingData.getArticleName() + "%");
         }
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        if (pagingData.getCreateTimeBegin() != null && pagingData.getCreateTimeBegin() != "") {
+        if (teacherPagingData.getCreateTimeBegin() != null && teacherPagingData.getCreateTimeBegin() != "") {
 
             try {
-                criteria.andCreateTimeGreaterThan(format.parse(pagingData.getCreateTimeBegin()));
+                criteria.andCreateTimeGreaterThan(format.parse(teacherPagingData.getCreateTimeBegin()));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
 
         }
-        if (pagingData.getCreateTimeEnd() != null && pagingData.getCreateTimeEnd() != "") {
+        if (teacherPagingData.getCreateTimeEnd() != null && teacherPagingData.getCreateTimeEnd() != "") {
             try {
-                format.parse(pagingData.getCreateTimeEnd());
-                Date date = (new SimpleDateFormat("yyyy-MM-dd")).parse(pagingData.getCreateTimeEnd());
+                format.parse(teacherPagingData.getCreateTimeEnd());
+                Date date = (new SimpleDateFormat("yyyy-MM-dd")).parse(teacherPagingData.getCreateTimeEnd());
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(date);
                 cal.add(Calendar.DATE, 1);

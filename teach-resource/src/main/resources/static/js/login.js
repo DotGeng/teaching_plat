@@ -43,6 +43,7 @@
             success: function (data, response, status) {
                 $.messager.progress('close');
                 if (data.code == 200) {
+                    sessionStorage.setItem("userName",teacherName);
                     window.location.href = "/static/resource/teacher/index";
                 }
             }

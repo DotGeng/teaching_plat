@@ -5,6 +5,8 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
     <result column="visit_time" property="visitTime" jdbcType="TIMESTAMP" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, ip, visit_time
+    id, ip, visit_time, user_name, role
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.cqupt.teachresource.model.VisitorRecordExample" >
     select
@@ -99,10 +101,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.cqupt.teachresource.model.VisitorRecord" >
-    insert into visitor_record (id, ip, visit_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, #{visitTime,jdbcType=TIMESTAMP}
-      )
+    insert into visitor_record (id, ip, visit_time, 
+      user_name, role)
+    values (#{id,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, #{visitTime,jdbcType=TIMESTAMP}, 
+      #{userName,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.cqupt.teachresource.model.VisitorRecord" >
     insert into visitor_record
@@ -116,6 +118,12 @@
       <if test="visitTime != null" >
         visit_time,
       </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -126,6 +134,12 @@
       </if>
       <if test="visitTime != null" >
         #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -147,6 +161,12 @@
       <if test="record.visitTime != null" >
         visit_time = #{record.visitTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.role != null" >
+        role = #{record.role,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -156,7 +176,9 @@
     update visitor_record
     set id = #{record.id,jdbcType=INTEGER},
       ip = #{record.ip,jdbcType=VARCHAR},
-      visit_time = #{record.visitTime,jdbcType=TIMESTAMP}
+      visit_time = #{record.visitTime,jdbcType=TIMESTAMP},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      role = #{record.role,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -170,13 +192,21 @@
       <if test="visitTime != null" >
         visit_time = #{visitTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null" >
+        role = #{role,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.cqupt.teachresource.model.VisitorRecord" >
     update visitor_record
     set ip = #{ip,jdbcType=VARCHAR},
-      visit_time = #{visitTime,jdbcType=TIMESTAMP}
+      visit_time = #{visitTime,jdbcType=TIMESTAMP},
+      user_name = #{userName,jdbcType=VARCHAR},
+      role = #{role,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

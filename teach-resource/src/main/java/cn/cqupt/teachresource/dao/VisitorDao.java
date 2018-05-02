@@ -1,5 +1,7 @@
 package cn.cqupt.teachresource.dao;
 
+import cn.cqupt.teachresource.BaseParam.PagingResponse;
+import cn.cqupt.teachresource.BaseParam.VisitorPagingData;
 import cn.cqupt.teachresource.model.VisitorRecord;
 
 /**
@@ -7,4 +9,6 @@ import cn.cqupt.teachresource.model.VisitorRecord;
  */
 public interface VisitorDao {
     public void addVisitorInfo(VisitorRecord visitorRecord);
+
+    PagingResponse getVisitorList(VisitorPagingData visitorPagingData);
 }

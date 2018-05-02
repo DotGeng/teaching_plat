@@ -12,7 +12,7 @@
         $("#article_edit_div").dialog('close');
     };
     $('#searchArticle').click(function () {
-        $('#teacher_article_manager').datagrid('load',{
+        $('#teacher_article_manager').datagrid('load', {
             articleName: $('#articleTitle').val(),
             createTimeBegin: $('#createTimeBegin').val(),
             createTimeEnd: $('#createTimeEnd').val(),
@@ -54,7 +54,6 @@
                     text: '新增',
                     iconCls: 'icon-add',
                     handler: function () {
-                        debugger;
                         if ($('#article_add').form('validate')) {
                             // 把数据写到数据库里边
                             var articleName = $('#articleName').val();
@@ -170,7 +169,6 @@
                                 $.messager.progress('close');
                                 if (result.content) {
                                     var obj = result.content;
-                                    debugger;
                                     $('#article_edit_div').dialog('open');
                                     $('#id').val(obj.id);
                                     $('#articleEditName').val(obj.articleName);
