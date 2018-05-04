@@ -56,7 +56,6 @@ public class ArticleDaoImpl implements ArticleDao {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-
         }
         List<Article> artiles = articleMapper.selectByExample(example);
         List<Article> articles2 = new ArrayList<>();

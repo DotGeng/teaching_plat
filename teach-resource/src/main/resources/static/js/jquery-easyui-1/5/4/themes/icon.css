@@ -42,6 +42,20 @@
     background: url('icons/reload.png') no-repeat center center;
 }
 
+.icon-meduim-manager {
+    background: url('icons/icon-meduim-manager.png') no-repeat center center;
+}
+
+.icon-content-manager {
+    background: url('icons/icon-content-manager.png') no-repeat center center;
+}
+
+.icon-studying-manager {
+    background: url('icons/icon-studying-manager.png') no-repeat center center;
+}
+.icon-detail-manager {
+    background: url('icons/icon-detail-manager.png') no-repeat center center;
+}
 .icon-search {
     background: url('icons/search.png') no-repeat center center;
 }
@@ -118,8 +132,24 @@
     background: url("icons/person_information.png") no-repeat center center;
 }
 
+.icon-student-account {
+    background: url("icons/icon-student-account.png") no-repeat center center;
+}
+
+.icon-student-detail {
+    background: url("icons/icon-student-detail.png") no-repeat center center;
+}
+
+.icon-teacher-account {
+    background: url("icons/icon-teacher-account.png") no-repeat center center;
+}
+
 .icon-article_add {
     background: url("icons/article_add.png") no-repeat center center;
+}
+
+.icon-teacher-detail {
+    background: url("icons/icon-teacher-detail.png") no-repeat center center;
 }
 
 .icon-modify_information {
@@ -129,6 +159,19 @@
 .icon-article_list {
     background: url("icons/article_list.png") no-repeat center center;
 }
+
+.cion-database {
+    background: url("icons/cion-database.png") no-repeat center center;
+}
+
+.icon-database-dump {
+    background: url("icons/icon-database-dump.png") no-repeat center center;
+}
+
+.icon-database-redo {
+    background: url("icons/icon-database-redo.png") no-repeat center center;
+}
+
 .icon-visit_account {
     background: url("icons/visit_account.png") no-repeat center center;
 }
@@ -136,6 +179,7 @@
 .icon-visit-data {
     background: url("icons/visit-data.png") no-repeat center center;
 }
+
 .icon-large-picture {
     background: url('icons/large_picture.png') no-repeat center center;
 }

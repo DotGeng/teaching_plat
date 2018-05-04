@@ -18,7 +18,7 @@ public class TeacherDaoImpl implements TeacherDao {
     @Override
     public Teacher getTeacherByTeacherName(String teacherName) {
         TeacherExample example = new TeacherExample();
-        CriteriaUtil.getTeacherCriteria(example).andTeacherNameEqualTo(teacherName);
+        CriteriaUtil.getTeacherCriteria(example).andTeachernameEqualTo(teacherName);
         List<Teacher> teachers = teacherMapper.selectByExample(example);
         if (teachers != null && teachers.size() > 0) {
             return teachers.get(0);

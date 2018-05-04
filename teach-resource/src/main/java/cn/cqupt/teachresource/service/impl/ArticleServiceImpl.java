@@ -4,6 +4,7 @@ package cn.cqupt.teachresource.service.impl;
 import cn.cqupt.teachresource.BaseParam.TeacherPagingData;
 import cn.cqupt.teachresource.BaseParam.PagingResponse;
 import cn.cqupt.teachresource.dao.ArticleDao;
+import cn.cqupt.teachresource.dao.VisitorDao;
 import cn.cqupt.teachresource.model.Article;
 import cn.cqupt.teachresource.service.ArticleService;
 import com.github.pagehelper.PageHelper;
@@ -27,12 +28,14 @@ public class ArticleServiceImpl implements ArticleService {
     private String port;
     @Autowired
     private ArticleDao articleDao;
-
+    @Autowired
+    private VisitorDao visitorDao;
     @Override
     public PagingResponse getArticles(TeacherPagingData pagedate) {
         //String orderBy = "modify_time" + " desc";//按照排序字段 倒序 排序
         PageHelper.startPage(pagedate.getPage(), pagedate.getRows());
         PageHelper.orderBy("modify_time desc");
+        //PagingResponse pr = visitorDao.getVisitorList(null);
         PagingResponse pagingResponse = articleDao.getArticleList(pagedate);
         return pagingResponse;
     }

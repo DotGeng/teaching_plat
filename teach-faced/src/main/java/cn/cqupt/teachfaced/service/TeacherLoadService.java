@@ -6,7 +6,7 @@ package cn.cqupt.teachfaced.service;
 public interface TeacherLoadService {
     public boolean teacherIsLoaded(String teacherName);
 
-    public String teacherLoadAction(String teacherName, String password);
+    public String teacherLoadAction(String teacherName, String password, String role);
 
     public boolean teacherLogout(String teacherName);
 }

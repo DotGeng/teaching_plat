@@ -30,10 +30,10 @@ public class TeacherLoadServiceImpl implements TeacherLoadService {
     }
 
     @Override
-    public String teacherLoadAction(String teacherName, String password) {
+    public String teacherLoadAction(String teacherName, String password, String role) {
         // 先从数据库中获取数据，获取数据成功后，在加载内存中
         Teacher teahcer = teacherDao.getTeacherByTeacherName(teacherName);
-        if (teahcer != null) {
+        if (teahcer != null && teahcer.getTeacherpw().equals(password) && teahcer.getTeacherrole().equals(Integer.parseInt(role))) {
             // 登录成功，缓存至redis中
             String userJson = JsonUtils.objectToJson(teahcer);
             // 缓存时间设置为15分钟

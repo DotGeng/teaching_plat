@@ -368,7 +368,6 @@
             });
         }
     };
-
     page.init();
 
 })(window, document);

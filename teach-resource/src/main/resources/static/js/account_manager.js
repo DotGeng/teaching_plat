@@ -30,6 +30,7 @@
                 }
             );
             $('#teacherName').val(sessionStorage.getItem('userName'));
+            $('#roleName').val(sessionStorage.getItem('roleName'));
             $('#editAccountInfoButton').click(function () {
                 $.ajax({
                     url: '/token/teacher',

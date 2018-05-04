@@ -2,19 +2,15 @@ package cn.cqupt.teachsso.mapper;
 
 import cn.cqupt.teachsso.model.Teacher;
 import cn.cqupt.teachsso.model.TeacherExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface TeacherMapper {
     int countByExample(TeacherExample example);
 
     int deleteByExample(TeacherExample example);
 
-    int deleteByPrimaryKey(Integer teacherId);
+    int deleteByPrimaryKey(Integer teacherid);
 
     int insert(Teacher record);
 
@@ -22,7 +18,7 @@ public interface TeacherMapper {
 
     List<Teacher> selectByExample(TeacherExample example);
 
-    Teacher selectByPrimaryKey(Integer teacherId);
+    Teacher selectByPrimaryKey(Integer teacherid);
 
     int updateByExampleSelective(@Param("record") Teacher record, @Param("example") TeacherExample example);
 

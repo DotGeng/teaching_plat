@@ -20,8 +20,18 @@ public class FrontController {
         return "/teacherIndex";
     }
 
+    @RequestMapping("/static/resource/manager/index")
+    public String getIndexForManager() {
+        return "/managerIndex";
+    }
+
     @RequestMapping("/static/resource/teacher/article/manager")
     public String getArticleAddForTeacher() {
+        return "/teacher_article_manger";
+    }
+
+    @RequestMapping("/static/resource/manager/article/manager")
+    public String getArticleAddForManager() {
         return "/teacher_article_manger";
     }
 
@@ -39,4 +49,14 @@ public class FrontController {
     public String visitors() {
         return "/visitor_account";
     }
+
+    @RequestMapping("/static/database/backup")
+    public String databaseBackup() {
+        return "/database-backup";
+    }
+    @RequestMapping("/static/database/restore")
+    public String databaseRestore() {
+        return "/database-restore";
+    }
+
 }

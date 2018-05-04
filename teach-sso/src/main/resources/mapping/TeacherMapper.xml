@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.cqupt.teachsso.mapper.TeacherMapper" >
   <resultMap id="BaseResultMap" type="cn.cqupt.teachsso.model.Teacher" >
-    <id column="teacher_id" property="teacherId" jdbcType="INTEGER" />
-    <result column="teacher_name" property="teacherName" jdbcType="VARCHAR" />
-    <result column="teacher_pswd" property="teacherPswd" jdbcType="VARCHAR" />
-    <result column="teacher_role" property="teacherRole" jdbcType="VARCHAR" />
+    <id column="teacherID" property="teacherid" jdbcType="INTEGER" />
+    <result column="teacherName" property="teachername" jdbcType="VARCHAR" />
+    <result column="teacherPw" property="teacherpw" jdbcType="VARCHAR" />
+    <result column="teacherRole" property="teacherrole" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    teacher_id, teacher_name, teacher_pswd, teacher_role
+    teacherID, teacherName, teacherPw, teacherRole
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.cqupt.teachsso.model.TeacherExample" >
     select
@@ -87,11 +87,11 @@
     select 
     <include refid="Base_Column_List" />
     from teacher
-    where teacher_id = #{teacherId,jdbcType=INTEGER}
+    where teacherID = #{teacherid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from teacher
-    where teacher_id = #{teacherId,jdbcType=INTEGER}
+    where teacherID = #{teacherid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="cn.cqupt.teachsso.model.TeacherExample" >
     delete from teacher
@@ -100,39 +100,39 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.cqupt.teachsso.model.Teacher" >
-    insert into teacher (teacher_id, teacher_name, teacher_pswd, 
-      teacher_role)
-    values (#{teacherId,jdbcType=INTEGER}, #{teacherName,jdbcType=VARCHAR}, #{teacherPswd,jdbcType=VARCHAR}, 
-      #{teacherRole,jdbcType=VARCHAR})
+    insert into teacher (teacherID, teacherName, teacherPw, 
+      teacherRole)
+    values (#{teacherid,jdbcType=INTEGER}, #{teachername,jdbcType=VARCHAR}, #{teacherpw,jdbcType=VARCHAR}, 
+      #{teacherrole,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.cqupt.teachsso.model.Teacher" >
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="teacherId != null" >
-        teacher_id,
+      <if test="teacherid != null" >
+        teacherID,
       </if>
-      <if test="teacherName != null" >
-        teacher_name,
+      <if test="teachername != null" >
+        teacherName,
       </if>
-      <if test="teacherPswd != null" >
-        teacher_pswd,
+      <if test="teacherpw != null" >
+        teacherPw,
       </if>
-      <if test="teacherRole != null" >
-        teacher_role,
+      <if test="teacherrole != null" >
+        teacherRole,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="teacherId != null" >
-        #{teacherId,jdbcType=INTEGER},
+      <if test="teacherid != null" >
+        #{teacherid,jdbcType=INTEGER},
       </if>
-      <if test="teacherName != null" >
-        #{teacherName,jdbcType=VARCHAR},
+      <if test="teachername != null" >
+        #{teachername,jdbcType=VARCHAR},
       </if>
-      <if test="teacherPswd != null" >
-        #{teacherPswd,jdbcType=VARCHAR},
+      <if test="teacherpw != null" >
+        #{teacherpw,jdbcType=VARCHAR},
       </if>
-      <if test="teacherRole != null" >
-        #{teacherRole,jdbcType=VARCHAR},
+      <if test="teacherrole != null" >
+        #{teacherrole,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -145,17 +145,17 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update teacher
     <set >
-      <if test="record.teacherId != null" >
-        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      <if test="record.teacherid != null" >
+        teacherID = #{record.teacherid,jdbcType=INTEGER},
       </if>
-      <if test="record.teacherName != null" >
-        teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      <if test="record.teachername != null" >
+        teacherName = #{record.teachername,jdbcType=VARCHAR},
       </if>
-      <if test="record.teacherPswd != null" >
-        teacher_pswd = #{record.teacherPswd,jdbcType=VARCHAR},
+      <if test="record.teacherpw != null" >
+        teacherPw = #{record.teacherpw,jdbcType=VARCHAR},
       </if>
-      <if test="record.teacherRole != null" >
-        teacher_role = #{record.teacherRole,jdbcType=VARCHAR},
+      <if test="record.teacherrole != null" >
+        teacherRole = #{record.teacherrole,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -164,10 +164,10 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update teacher
-    set teacher_id = #{record.teacherId,jdbcType=INTEGER},
-      teacher_name = #{record.teacherName,jdbcType=VARCHAR},
-      teacher_pswd = #{record.teacherPswd,jdbcType=VARCHAR},
-      teacher_role = #{record.teacherRole,jdbcType=VARCHAR}
+    set teacherID = #{record.teacherid,jdbcType=INTEGER},
+      teacherName = #{record.teachername,jdbcType=VARCHAR},
+      teacherPw = #{record.teacherpw,jdbcType=VARCHAR},
+      teacherRole = #{record.teacherrole,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -175,23 +175,23 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.cqupt.teachsso.model.Teacher" >
     update teacher
     <set >
-      <if test="teacherName != null" >
-        teacher_name = #{teacherName,jdbcType=VARCHAR},
+      <if test="teachername != null" >
+        teacherName = #{teachername,jdbcType=VARCHAR},
       </if>
-      <if test="teacherPswd != null" >
-        teacher_pswd = #{teacherPswd,jdbcType=VARCHAR},
+      <if test="teacherpw != null" >
+        teacherPw = #{teacherpw,jdbcType=VARCHAR},
       </if>
-      <if test="teacherRole != null" >
-        teacher_role = #{teacherRole,jdbcType=VARCHAR},
+      <if test="teacherrole != null" >
+        teacherRole = #{teacherrole,jdbcType=INTEGER},
       </if>
     </set>
-    where teacher_id = #{teacherId,jdbcType=INTEGER}
+    where teacherID = #{teacherid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.cqupt.teachsso.model.Teacher" >
     update teacher
-    set teacher_name = #{teacherName,jdbcType=VARCHAR},
-      teacher_pswd = #{teacherPswd,jdbcType=VARCHAR},
-      teacher_role = #{teacherRole,jdbcType=VARCHAR}
-    where teacher_id = #{teacherId,jdbcType=INTEGER}
+    set teacherName = #{teachername,jdbcType=VARCHAR},
+      teacherPw = #{teacherpw,jdbcType=VARCHAR},
+      teacherRole = #{teacherrole,jdbcType=INTEGER}
+    where teacherID = #{teacherid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -33,8 +33,9 @@ public class VisitorDaoImpl implements VisitorDao {
         PagingResponse pr = new PagingResponse();
         VisitorRecordExample example = new VisitorRecordExample();
         CriteriaUtils.getCriteria(example);
-        pr.setTotal(visitorRecordMapper.countByExample(example));
+        // 一定要注意这两行代码的顺序，因为pagehelper只会拦截第一个sql语句
         List<VisitorRecord> visitorRecords = visitorRecordMapper.selectByExample(example);
+        pr.setTotal(visitorRecordMapper.countByExample(example));
         List<VisitorRecord> visitorRecords2 = new ArrayList<>();
         for (VisitorRecord vr : visitorRecords) {
             VisitorInfoResponse visitorInfoResponse = new VisitorInfoResponse();

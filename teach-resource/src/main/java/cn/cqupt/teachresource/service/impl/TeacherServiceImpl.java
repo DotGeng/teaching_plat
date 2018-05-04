@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TeacherServiceImpl implements TeacherService {
+
     @Autowired
     private TeacherLoadService teacherLoadService;
 
@@ -22,7 +23,8 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public String teacherLoginAction(Teacher teacher) {
-        String token = teacherLoadService.teacherLoadAction(teacher.getTeacherName(), teacher.getTeacherPswd());
+        String token = teacherLoadService.teacherLoadAction(teacher.getTeachername(), teacher.getTeacherpw(), teacher.getTeacherrole().toString());
+
         return token;
     }
 }

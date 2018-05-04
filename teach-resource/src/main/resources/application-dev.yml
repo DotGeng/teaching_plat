@@ -11,10 +11,11 @@ spring:
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${spring.web.upload-path}
   datasource:
-    name: teaching_platform
-    url: jdbc:mysql://127.0.0.1:3306/teaching_platform??characterEncoding\=utf8&zeroDateTimeBehavior\=convertToNull
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/test??characterEncoding\=utf8&zeroDateTimeBehavior\=convertToNull
     username: root
     password: root
+    databasename: teaching_platform
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
@@ -40,7 +41,12 @@ spring:
 ##     registry:
 ##       address: zookeeper://192.168.1.128:2181
 ##     scan: cn.cqupt.teachresource
-
+logging:
+  level:
+    cn:
+      cqupt:
+        teachresource:
+          mapper: debug
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: cn.cqupt.model

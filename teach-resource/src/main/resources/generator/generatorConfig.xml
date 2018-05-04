@@ -13,7 +13,7 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1/teaching_platform"
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1/test"
                         userId="root" password="root">
         </jdbcConnection>
         <javaTypeResolver>
@@ -44,9 +44,26 @@
                enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
-        <table tableName="visitor_record" domainObjectName="VisitorRecord" enableCountByExample="true"
+        <!--<table tableName="visitor_record" domainObjectName="VisitorRecord" enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+        <!--<table tableName="manager_nav" domainObjectName="ManagerNav" enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+        <!--<table tableName="studing_teacher_nav" domainObjectName="StudingTeacherNav" enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+        <!--<table tableName="teacher" domainObjectName="Teacher" enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+        <table tableName="studying_material" domainObjectName="StudyingMaterial" enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
         </table>
+
     </context>
 </generatorConfiguration>

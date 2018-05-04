@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>在线学习平台登录</title>
+    <link rel="stylesheet" type="text/css" href="/js/jquery-easyui-1/5/4/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="/js/jquery-easyui-1/5/4/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+
+</head>
+<body style="background-color: #F3F3F3">
+<div class="easyui-dialog" title="在线学习系统登录" data-options="closable:false,draggable:false"
+     style="width:400px;height:300px;padding:10px;">
+    <div style="margin-left: 50px;margin-top: 50px;">
+        <div style="margin-bottom:20px;">
+            <div>
+                用户名: <input id="studing_userName" name="userName" class="easyui-textbox" data-options=""
+                            style="width:200px;height:32px"/>
+            </div>
+        </div>
+        <div style="margin-bottom:20px">
+            <div>
+                密&nbsp;&nbsp;&nbsp;&nbsp;码: <input id="studing_password" name="password" class="easyui-textbox" type="password"
+                                                   data-options=""
+                                                   style="width:200px;height:32px"/>
+            </div>
+        </div>
+        <div style="margin-bottom:20px">
+            <tr>
+                <td style="text-align:right;">角色选择：</td>
+                <td style="text-align:left">
+            <span class="radioSpan">
+                <input type="radio" name="studing_radio" value="2">超级管理员</input>
+                <input type="radio" name="studing_radio" value="1" checked="checked">教师</input>
+                <input type="radio" name="studing_radio" value="0">学生</input>
+            </span>
+                </td>
+            </tr>
+        </div>
+        <div id="studing_btn">
+            <a class="easyui-linkbutton" iconCls="icon-ok" style="width:100px;height:32px;margin-left: 50px">登录</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-easyui-1/5/4/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/js/jquery-easyui-1/5/4/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/js/studing-login.js"></script>
+</body>
+</html>

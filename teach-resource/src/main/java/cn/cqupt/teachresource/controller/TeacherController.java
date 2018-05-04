@@ -45,8 +45,8 @@ public class TeacherController extends BaseController {
         CookieUtils.setCookie(hsRequest, hsResponse, "TOKEN", token);
         // 记录登录信息
         String ip = hsRequest.getRemoteAddr();
-        visitorRecordService.addVisitorInfo(ip, teacherVo.getTeacherName(), RoleParam.TEACHER);
-        return success("ok", "");
+        visitorRecordService.addVisitorInfo(ip, teacherVo.getTeachername(), teacherVo.getTeacherrole());
+        return success(token, "ok", "");
     }
 
     /**

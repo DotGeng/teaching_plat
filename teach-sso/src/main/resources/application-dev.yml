@@ -2,8 +2,8 @@ server:
   port: 8080
 spring:
   datasource:
-    name: teaching_platform
-    url: jdbc:mysql://127.0.0.1:3306/teaching_platform
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/test
     username: root
     password: root
     # 使用druid数据源

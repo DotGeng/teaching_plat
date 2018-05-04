@@ -1,43 +1,43 @@
 package cn.cqupt.teachresource.model;
 
 public class Teacher {
-    private Integer teacherId;
+    private Integer teacherid;
 
-    private String teacherName;
+    private String teachername;
 
-    private String teacherPswd;
+    private String teacherpw;
 
-    private String teacherRole;
+    private Integer teacherrole;
 
-    public Integer getTeacherId() {
-        return teacherId;
+    public Integer getTeacherid() {
+        return teacherid;
     }
 
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacherid(Integer teacherid) {
+        this.teacherid = teacherid;
     }
 
-    public String getTeacherName() {
-        return teacherName;
+    public String getTeachername() {
+        return teachername;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName == null ? null : teacherName.trim();
+    public void setTeachername(String teachername) {
+        this.teachername = teachername == null ? null : teachername.trim();
     }
 
-    public String getTeacherPswd() {
-        return teacherPswd;
+    public String getTeacherpw() {
+        return teacherpw;
     }
 
-    public void setTeacherPswd(String teacherPswd) {
-        this.teacherPswd = teacherPswd == null ? null : teacherPswd.trim();
+    public void setTeacherpw(String teacherpw) {
+        this.teacherpw = teacherpw == null ? null : teacherpw.trim();
     }
 
-    public String getTeacherRole() {
-        return teacherRole;
+    public Integer getTeacherrole() {
+        return teacherrole;
     }
 
-    public void setTeacherRole(String teacherRole) {
-        this.teacherRole = teacherRole == null ? null : teacherRole.trim();
+    public void setTeacherrole(Integer teacherrole) {
+        this.teacherrole = teacherrole;
     }
 }

@@ -10,15 +10,15 @@
 
                 // 发起ajax请求
                 var radioVal = $("input[name='radio']:checked").val();
-                var url = '';
+                var url = '/teacher/session/create';
                 var userName = $('#userName').val();
                 var password = $('#password').val();
-                if (radioVal == 1) {
+                if (radioVal == 2) {
                     // 超级管理员登录链接
-                } else if (radioVal == 2) {
+                    teacherLogin(url, userName, password, radioVal);
+                } else if (radioVal == 1) {
                     // 教师登录url
-                    url = '/teacher/session/create';
-                    teacherLogin(url, userName, password);
+                    teacherLogin(url, userName, password, radioVal);
                 } else if (radioVal == 3) {
                     // 学生登录url
                     url = '';
@@ -27,13 +27,14 @@
         }
     };
     // 教师ajax请求
-    var teacherLogin = function (url, teacherName, teacherPswd) {
+    var teacherLogin = function (url, teacherName, teacherPswd, radioVal) {
         $.ajax({
             url: url,
             type: 'post',
             data: {
-                teacherName: teacherName,
-                teacherPswd: teacherPswd
+                teachername: teacherName,
+                teacherpw: teacherPswd,
+                teacherrole: radioVal,
             },
             beforeSend: function () {
                 $.messager.progress({
@@ -42,9 +43,17 @@
             },
             success: function (data, response, status) {
                 $.messager.progress('close');
-                if (data.code == 200) {
-                    sessionStorage.setItem("userName",teacherName);
-                    window.location.href = "/static/resource/teacher/index";
+                if (data.code == 200 && data.token != null) {
+                    if (radioVal == '1') {
+                        sessionStorage.setItem("userName", teacherName);
+                        sessionStorage.setItem("roleName", "普通教师");
+                        window.location.href = "/static/resource/teacher/index";
+                    }
+                    if (radioVal == '2') {
+                        sessionStorage.setItem("userName", teacherName);
+                        sessionStorage.setItem("roleName", "超级管理员");
+                        window.location.href = "/static/resource/manager/index";
+                    }
                 }
             }
         })

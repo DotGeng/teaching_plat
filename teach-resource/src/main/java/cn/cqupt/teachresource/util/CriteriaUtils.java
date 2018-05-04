@@ -1,8 +1,6 @@
 package cn.cqupt.teachresource.util;
 
-import cn.cqupt.teachresource.model.ArticleExample;
-import cn.cqupt.teachresource.model.TeacherNavExample;
-import cn.cqupt.teachresource.model.VisitorRecordExample;
+import cn.cqupt.teachresource.model.*;
 
 /**
  * Created by YukunGeng on 2018/4/20.
@@ -17,6 +15,18 @@ public class CriteriaUtils {
     }
 
     public static VisitorRecordExample.Criteria getCriteria(VisitorRecordExample example) {
+        return example.createCriteria();
+    }
+
+    public static ManagerNavExample.Criteria getCriteria(ManagerNavExample example) {
+        return example.createCriteria();
+    }
+
+    public static StudingTeacherNavExample.Criteria getCriteria(StudingTeacherNavExample example) {
+        return example.createCriteria();
+    }
+
+    public static StudyingMaterialExample.Criteria getCriteria(StudyingMaterialExample example) {
         return example.createCriteria();
     }
 }
