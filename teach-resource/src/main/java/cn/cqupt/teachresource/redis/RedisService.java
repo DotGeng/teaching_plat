@@ -1,14 +1,17 @@
 package cn.cqupt.teachresource.redis;
 
+import groovy.transform.SourceURI;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RedisService {
 
+    // 定义成static就是为了实现单利模式
     private static RedisClient redisClient;
 
     static {
-        redisClient = new RedisClient("192.168.0.101", 6379);
+        redisClient = new RedisClient("172.23.20.212", 6379);
     }
 
     public String get(String key) {

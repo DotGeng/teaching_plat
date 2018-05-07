@@ -64,6 +64,8 @@
                enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
         </table>
-
+        <table tableName="studying_materia_progress" domainObjectName="StudyingMateriaProgress"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
     </context>
 </generatorConfiguration>

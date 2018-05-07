@@ -1,6 +1,8 @@
 package cn.cqupt.teachresource.controller;
 
+import cn.cqupt.teachresource.BaseParam.MateriaProcessPragram;
 import cn.cqupt.teachresource.BaseParam.PagingResponse;
+import cn.cqupt.teachresource.BaseParam.StudingMaterialFormat;
 import cn.cqupt.teachresource.BaseParam.StudyingMaterialPagingData;
 import cn.cqupt.teachresource.BashStatus.ResponseStatus;
 import cn.cqupt.teachresource.TeacherVo;
@@ -8,10 +10,7 @@ import cn.cqupt.teachresource.model.StudingTeacherNav;
 import cn.cqupt.teachresource.model.StudyingMaterial;
 import cn.cqupt.teachresource.model.Teacher;
 import cn.cqupt.teachresource.model.TeacherNav;
-import cn.cqupt.teachresource.service.StudingTeacherNavService;
-import cn.cqupt.teachresource.service.StudyingMaterialService;
-import cn.cqupt.teachresource.service.TeacherService;
-import cn.cqupt.teachresource.service.VisitorRecordService;
+import cn.cqupt.teachresource.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +19,7 @@ import util.CookieUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +35,8 @@ public class StudingTeacherController extends BaseController {
     private StudingTeacherNavService studingTeacherNavService;
     @Autowired
     private StudyingMaterialService studyingMaterialService;
+    @Autowired
+    private MaterialProgressService materialProgressService;
 
     @RequestMapping(value = "/studing/teacher/login", method = RequestMethod.POST)
     public ResponseStatus studingTacherLogin(TeacherVo teacherVo, HttpServletRequest hsRequest, HttpServletResponse hsResponse) {
@@ -60,5 +62,41 @@ public class StudingTeacherController extends BaseController {
     public ResponseStatus getStudyingMaterialById(Integer id) {
         StudyingMaterial studyingMaterial = studyingMaterialService.getStudyingMaterialBuId(id);
         return success("ok", studyingMaterial);
+    }
+
+    @RequestMapping(value = "/studying_material/process/setting", method = RequestMethod.POST)
+    public ResponseStatus setStudyingMaterialProcess(MateriaProcessPragram materiaProcessPragram) {
+        materialProgressService.setMediaProcess(materiaProcessPragram);
+        return success("ok", "");
+    }
+
+    @RequestMapping(value = "/material/info/editing", method = RequestMethod.POST)
+    public ResponseStatus editStudyingMaterial(MateriaProcessPragram materiaProcessPragram) {
+        // 修改操作
+
+        return success("ok", "");
+    }
+
+    @RequestMapping(value = "/studying_material/deleting", method = RequestMethod.POST)
+    public ResponseStatus setStudyingMaterialProcess(String ids) {
+        String[] arr = ids.split(",");
+        List<Integer> idsInt = new ArrayList<>();
+        for (String str : arr) {
+            idsInt.add(Integer.parseInt(str));
+        }
+        if (studyingMaterialService.deleteMedia(idsInt)) {
+            return success("ok", "");
+        } else {
+            return error("error");
+        }
+    }
+
+
+    @RequestMapping(value = "/id/media/editing", method = RequestMethod.POST)
+    public ResponseStatus editingStudyingMaterial(StudingMaterialFormat studingMaterialFormat) {
+        if (studyingMaterialService.editingMedia(studingMaterialFormat)) {
+            return success("ok", "");
+        }
+        return error("error");
     }
 }

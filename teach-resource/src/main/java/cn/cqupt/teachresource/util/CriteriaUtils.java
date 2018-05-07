@@ -29,4 +29,8 @@ public class CriteriaUtils {
     public static StudyingMaterialExample.Criteria getCriteria(StudyingMaterialExample example) {
         return example.createCriteria();
     }
+
+    public static StudyingMateriaProgressExample.Criteria getCriteria(StudyingMateriaProgressExample example) {
+        return example.createCriteria();
+    }
 }

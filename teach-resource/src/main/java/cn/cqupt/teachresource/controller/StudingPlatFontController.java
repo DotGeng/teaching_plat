@@ -25,8 +25,27 @@ public class StudingPlatFontController {
         return "/studying-material-manager";
     }
 
-    @RequestMapping(value = "/static/studying_material/video/detail")
+    /**
+     * 跳转到音频详情页
+     *
+     * @return
+     */
+    @RequestMapping(value = "/static/studying_material/audio/detail")
     public String getstudyingMaterialDetail() {
+        return "/media_audio_detail";
+    }
+
+    /**
+     * 跳转到视频详情页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "/static/studying_material/video/detail")
+    public String getstudyingMaterialVideoDetail() {
         return "/media_video_detail";
+    }
+    @RequestMapping(value = "/static/studying_material/file/detail")
+    public String getstudyingMaterialFileDetail() {
+        return "/media_file_detail";
     }
 }

@@ -23,20 +23,24 @@
 <!--<div id="studying_material_dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;">-->
 <div id="studying_material_article_add_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
     <form id="studying_material_article_add" style="margin:0;padding: 5px 0 0 25px;color: #333;">
-        <p>文章主题:<input id="studying_material_articleName" class="text" type="text" name="input_add"
+        <p>资料主题:<input id="studying_material_articleName" class="text" type="text" name="input_add"
                        data-options="required:true"
                        style="width: 200px;"/>
         </p>
-        <p>文章描述:<textarea id="studying_material_articleDscrp" class="text-area" name="message" style="width: 200px;"/>
+        <p>资料描述:<textarea id="studying_material_articleDscrp" class="text-area" name="message" style="width: 200px;"/>
         </p>
-
+        <p>资料类型：<select id="media_add_type" class="easyui-combobox" name="dept" style="width:200px;">
+            <option value="0" selected="selected">文章</option>
+            <option value="1">音频</option>
+            <option value="2">视频</option>
+        </select></p>
     </form>
     <table>
         <tr>
             <th><!-- 上传文件请应一个非常纯净的form，避免出错-->
                 <form id="studying_material_uploadForm" enctype="multipart/form-data"
                       style="margin:0;padding: 5px 0 0 25px;color: #333;Float:left ">
-                    <p>上传文件:<input id="studying_material_file" type="file" style="width: 150px" name="file"/></p>
+                    <p>资料上传:<input id="studying_material_file" type="file" style="width: 150px" name="file"/></p>
                 </form>
             </th>
             <th>
@@ -48,29 +52,34 @@
         <tr id="studying_material_file_url_fiv_row" style="display: none;margin:0;padding: 5px 0 0 25px;">
             <td align="right">
                 <div align="right">
-                    <a id="studying_material_fileUrl" download="">查看文件</a>
+                    <a id="studying_material_fileUrl" download="">查看资料</a>
                 </div>
             </td>
             <td>
                 <div align="right">
-                    <a id="studying_material_deletFileUrl" href="javascript:void(0);">删除文件</a>
+                    <a id="studying_material_deletFileUrl" href="javascript:void(0);">删除资料</a>
                 </div>
             </td>
         </tr>
     </table>
-    <p style="display: none">文件路径:<input type="text" data-options="required:true"
-                                         id="studying_material_file--edit-   path"/></p>
+    <!--<p style="display: none">文件路径:<input type="text" data-options="required:true"
+                                         id="studying_material_file&#45;&#45;edit-path"/></p>-->
 </div>
 
 <div id="studying_material_article_edit_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
     <form id="studying_material_article_edit" style="margin:0;padding: 5px 0 0 25px;color: #333;">
-        <input id="id" class="text" type="text" name="input_add" data-options=""
+        <input id="studying_material_id" class="text" type="text" name="input_add" data-options=""
                style="width: 200px;display: none" disabled="disabled"/>
-        <p>文章主题:<input id="studying_material_articleEditName" class="text" type="text" name="input_add" data-options=""
+        <p>资料主题:<input id="studying_material_articleEditName" class="text" type="text" name="input_add" data-options=""
                        style="width: 200px;"/>
         </p>
-        <p>文章描述:<textarea id="studying_material_articleEditDscrp" class="text-area" name="message"
+        <p>资料描述:<textarea id="studying_material_articleEditDscrp" class="text-area" name="message"
                           style="width: 200px;"/></p>
+        <p>资料类型：<select id="media_type" class="easyui-combobox" name="dept" style="width:200px;">
+            <option value="0" selected="selected">文章</option>
+            <option value="1">音频</option>
+            <option value="2">视频</option>
+        </select></p>
 
     </form>
     <table>
@@ -100,7 +109,6 @@
             </td>
         </tr>
     </table>
-    <p style="display: none">文件路径:<input type="text" data-options="required:true" id="studying_material_file-path"/></p>
-</div>
 
+</div>
 <script type="text/javascript" src="/js/studying-material-manager.js"></script>

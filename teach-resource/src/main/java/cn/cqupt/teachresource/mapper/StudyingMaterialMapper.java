@@ -2,9 +2,7 @@ package cn.cqupt.teachresource.mapper;
 
 import cn.cqupt.teachresource.model.StudyingMaterial;
 import cn.cqupt.teachresource.model.StudyingMaterialExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

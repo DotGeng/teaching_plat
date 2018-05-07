@@ -11,5 +11,10 @@ import java.util.List;
  */
 public interface StudyingMaterialDao {
     public PagingResponse getStudyingMaterialList(StudyingMaterialPagingData studyingMaterialPagingData);
+
     StudyingMaterial getStudyingMaterialById(Integer id);
+
+    public boolean deleteMedia(List<Integer> ids);
+
+    boolean editingMedia(StudyingMaterial studyingMaterial);
 }

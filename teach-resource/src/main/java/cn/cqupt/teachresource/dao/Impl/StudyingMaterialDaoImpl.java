@@ -5,12 +5,14 @@ import cn.cqupt.teachresource.BaseParam.StudingMaterialFormat;
 import cn.cqupt.teachresource.BaseParam.StudyingMaterialPagingData;
 import cn.cqupt.teachresource.dao.StudyingMaterialDao;
 import cn.cqupt.teachresource.mapper.StudyingMaterialMapper;
+import cn.cqupt.teachresource.model.StudyingMateriaProgress;
 import cn.cqupt.teachresource.model.StudyingMaterial;
 import cn.cqupt.teachresource.model.StudyingMaterialExample;
 import cn.cqupt.teachresource.util.CriteriaUtils;
 import cn.cqupt.teachresource.util.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,5 +60,26 @@ public class StudyingMaterialDaoImpl implements StudyingMaterialDao {
     @Override
     public StudyingMaterial getStudyingMaterialById(Integer id) {
         return studyingMaterialMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public boolean deleteMedia(List<Integer> ids) {
+        StudyingMaterialExample example = new StudyingMaterialExample();
+        CriteriaUtils.getCriteria(example).andIdIn(ids);
+        if (studyingMaterialMapper.deleteByExample(example) != 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean editingMedia(StudyingMaterial studyingMaterial) {
+        StudyingMaterialExample example = new StudyingMaterialExample();
+        CriteriaUtils.getCriteria(example).andIdEqualTo(studyingMaterial.getId());
+        int res = studyingMaterialMapper.updateByExampleSelective(studyingMaterial, example);
+        if (res > 0) {
+            return true;
+        }
+        return false;
     }
 }

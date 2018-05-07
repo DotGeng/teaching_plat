@@ -1,6 +1,7 @@
 package cn.cqupt.teachresource.service.impl;
 
 import cn.cqupt.teachresource.BaseParam.PagingResponse;
+import cn.cqupt.teachresource.BaseParam.StudingMaterialFormat;
 import cn.cqupt.teachresource.BaseParam.StudyingMaterialPagingData;
 import cn.cqupt.teachresource.dao.StudyingMaterialDao;
 import cn.cqupt.teachresource.model.StudyingMaterial;
@@ -8,7 +9,9 @@ import cn.cqupt.teachresource.service.StudyingMaterialService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,5 +33,23 @@ public class StudyingMaterialServiceImpl implements StudyingMaterialService {
     public StudyingMaterial getStudyingMaterialBuId(Integer id) {
 
         return studyingMaterialDao.getStudyingMaterialById(id);
+    }
+
+    @Override
+    public boolean deleteMedia(List<Integer> ids) {
+        return studyingMaterialDao.deleteMedia(ids);
+    }
+
+    @Override
+    @Transactional
+    public boolean editingMedia(StudingMaterialFormat studyingMaterialFormat) {
+        StudyingMaterial studyingMaterial = new StudyingMaterial();
+        studyingMaterial.setId(studyingMaterialFormat.getId());
+        studyingMaterial.setMaterialDesc(studyingMaterialFormat.getMaterialDesc());
+        studyingMaterial.setTitle(studyingMaterialFormat.getTitle());
+        studyingMaterial.setUrl(studyingMaterialFormat.getUrl());
+        studyingMaterial.setType(studyingMaterialFormat.getType());
+        studyingMaterial.setUpdateTime(new Date());
+        return studyingMaterialDao.editingMedia(studyingMaterial);
     }
 }

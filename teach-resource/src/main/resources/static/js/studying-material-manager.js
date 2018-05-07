@@ -19,14 +19,13 @@
         });
     });
     detailMedia = function (value, mediaType) {
-        alert(mediaType);
         sessionStorage.setItem("mediaId", value);
         if (mediaType == 1) { // 音频
-            window.open("/static/studying_material/video/detail");
+            window.open("/static/studying_material/audio/detail");
         } else if (mediaType == 2) { //视频
-            window.open("/static/studying_material/detail");
+            window.open("/static/studying_material/video/detail");
         } else {
-            window.open("");
+            window.open("/static/studying_material/file/detail");
         }
     }
     var tableShow = function () {
@@ -77,7 +76,7 @@
                             var articleDscrp = $('#studying_material_articleDscrp').val();
                             var articlePath = $('#studying_material_fileUrl').attr("href");
                             $.ajax({
-                                url: "/article/info/adding",
+                                url: "/media/info/adding",
                                 type: 'post',
                                 data: {
                                     articleName: articleName,
@@ -119,18 +118,20 @@
                     handler: function () {
                         if ($('#studying_material_article_edit').form('validate')) {
                             // 把数据写到数据库里边
-                            var id = $('#id').val();
-                            var articleName = $('#studying_material_articleEditName').val();
-                            var articleDscrp = $('#studying_material_articleEditDscrp').val();
-                            var articlePath = $('#studying_material_fileEidtUrl').attr("href");
+                            var id = $('#studying_material_id').val();
+                            var title = $('#studying_material_articleEditName').val();
+                            var materialDesc = $('#studying_material_articleEditDscrp').val();
+                            var url = $('#studying_material_fileEidtUrl').attr("href");
+                            var type = $('#media_type').val();
                             $.ajax({
-                                url: "/article/info/editing",
+                                url: "/id/media/editing",
                                 type: 'post',
                                 data: {
                                     id: id,
-                                    articleName: articleName,
-                                    articleDscrp: articleDscrp,
-                                    articlePath: articlePath
+                                    title: title,
+                                    materialDesc: materialDesc,
+                                    url: url,
+                                    type: type
                                 },
                                 success: function (result) {
                                     $.messager.alert("消息", "提交成功");
@@ -172,10 +173,14 @@
                         $.messager.alert("警告", "编辑记录只能选择一条");
                     } else if (rows.length == 1) {
                         $.ajax({
-                            url: "/id/article",
+                            url: "/studying_material/specific",
                             type: 'post',
                             data: {
-                                id: rows[0].id
+                                id: rows[0].id,
+                                /*title: rows[0].title,
+                                 materialDesc: rows[0].materialDesc,
+                                 roleFormat: rows[0].roleFormat,
+                                 updateTimeFormat: rows[0].updateTimeFormat*/
                             },
                             beforeSend: function () {
                                 $.messager.progress({
@@ -188,11 +193,11 @@
                                     var obj = result.content;
                                     $('#studying_material_article_edit_div').dialog('open');
                                     $('#studying_material_id').val(obj.id);
-                                    $('#studying_material_articleEditName').val(obj.articleName);
-                                    $('#studying_material_articleEditDscrp').val(obj.articleDscrp);
-                                    $('#studying_material_fileEidtUrl').attr('href', obj.articlePath);
-
-                                    var arr = result.content.articlePath.split('/');
+                                    $('#studying_material_articleEditName').val(obj.title);
+                                    $('#studying_material_articleEditDscrp').val(obj.materialDesc);
+                                    $('#media_type').val(obj.type);
+                                    $('#studying_material_fileEidtUrl').attr('href', obj.url);
+                                    var arr = result.content.url.split('/');
                                     var delStr = '/file/deleting?fileName=' + arr[arr.length - 1];
                                     $('#studying_material_file_url_eidt_fiv_row').css({
                                         display: 'block',
@@ -246,7 +251,7 @@
                                 }
                                 $.ajax({
                                     type: 'post',
-                                    url: '/article/info/deleting',
+                                    url: '/studying_material/deleting',
                                     data: {
                                         ids: ids.join(','),
                                     },

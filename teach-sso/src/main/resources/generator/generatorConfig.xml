@@ -37,7 +37,9 @@
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="student" domainObjectName="Student" enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
-        <table tableName="teacher" domainObjectName="Teacher" enableCountByExample="true" enableUpdateByExample="true"
+        <!--<table tableName="teacher" domainObjectName="Teacher" enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
+        <table tableName="studying_materia_progress" domainObjectName="StudyingMateriaProgress" enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
     </context>
 </generatorConfiguration>
