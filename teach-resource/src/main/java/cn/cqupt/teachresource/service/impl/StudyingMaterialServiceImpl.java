@@ -52,4 +52,14 @@ public class StudyingMaterialServiceImpl implements StudyingMaterialService {
         studyingMaterial.setUpdateTime(new Date());
         return studyingMaterialDao.editingMedia(studyingMaterial);
     }
+
+    @Override
+    public boolean addMedia(StudyingMaterial studyingMaterial) {
+        studyingMaterial.setCreateTime(new Date());
+        studyingMaterial.setUpdateTime(new Date());
+        if (studyingMaterial.getUrl() == null) {
+            studyingMaterial.setUrl("");
+        }
+        return studyingMaterialDao.addMedia(studyingMaterial);
+    }
 }

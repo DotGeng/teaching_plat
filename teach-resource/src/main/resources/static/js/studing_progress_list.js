@@ -29,8 +29,8 @@
         }
     }
     var tableShow = function () {
-        $('#studying_material_teacher_article_manager').datagrid({
-            url: '/studying_material/list',
+        $('#studying_material_progress_teacher_manager').datagrid({
+            url: '/media/progress/list',
             fit: true,
             fitColumns: true,
             striped: true,
@@ -42,19 +42,17 @@
             pageNumber: 1,
             sortName: 'update_time',
             sortOrder: 'desc',
-            toolbar: '#studying_material_manage_tool',
+            //toolbar: '#studying_material_manage_tool',
             columns: [[
-                {field: 'id', title: 'id', width: 100, checkbox: true},
-                {field: 'title', title: '题目', width: 100},
-                {field: 'materialDesc', title: '内容简介', width: 100},
-                {field: 'roleFormat', title: '内容类型', width: 100},
-                {field: 'createTimeFormat', title: '创建时间', width: 100, align: 'right'},
-                {field: 'updateTimeFormat', title: '修改时间', width: 100, align: 'right'},
+                {field: 'studentNo', title: '学生学号', width: 100},
                 {
-                    field: 'mediaId', title: '详情', width: 100, formatter: function (value, row, index) {
-                    return '<a style="color:blue" onclick="detailMedia(' + value + ',' + row.type + ');">查看</a>';
+                    field: 'progress', title: '学习进度', width: 100, formatter: function (value, row, index) {
+                    return value + "%";
                 }
-                }
+                },
+                {field: 'mediaTitle', title: '资料主题', width: 100},
+                {field: 'createTimeFormat', title: '首次访问时间', width: 100, align: 'right'},
+                {field: 'updateTimeFormat', title: '最后访问时间', width: 100, align: 'right'},
             ]],
         });
     }
@@ -393,7 +391,4 @@
         }
     };
     page.init();
-
 })(window, document);
-
-

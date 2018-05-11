@@ -4,9 +4,7 @@ import cn.cqupt.teachresource.model.StudyingMateriaProgress;
 import cn.cqupt.teachresource.model.StudyingMateriaProgressExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface StudyingMateriaProgressMapper {
     int countByExample(StudyingMateriaProgressExample example);
 

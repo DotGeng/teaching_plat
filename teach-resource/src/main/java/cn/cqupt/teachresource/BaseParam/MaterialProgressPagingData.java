@@ -1,14 +1,16 @@
 package cn.cqupt.teachresource.BaseParam;
 
+import cn.cqupt.teachresource.model.StudyingMateriaProgress;
+
 /**
- * Created by YukunGeng on 2018/5/4.
+ * Created by YukunGeng on 2018/5/7.
  */
-public class StudyingMaterialPagingData {
+public class MaterialProgressPagingData extends StudyingMateriaProgress {
     private Integer page;
     private Integer rows;
     private String sort;
     private String order;
-    private String title;
+    private String studentNo;
     private String createTimeBegin;
     private String createTimeEnd;
 
@@ -44,12 +46,14 @@ public class StudyingMaterialPagingData {
         this.order = order;
     }
 
-    public String getTitle() {
-        return title;
+    @Override
+    public String getStudentNo() {
+        return studentNo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public void setStudentNo(String studentNo) {
+        this.studentNo = studentNo;
     }
 
     public String getCreateTimeBegin() {

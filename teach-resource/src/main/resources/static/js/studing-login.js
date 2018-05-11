@@ -51,7 +51,7 @@
                     if (radioVal == '2') {
                         sessionStorage.setItem("userName", teacherName);
                         sessionStorage.setItem("roleName", "超级管理员");
-                        window.location.href = "/static/resource/manager/index";
+                        window.location.href = "/static/studingplat/manager/index";
                     }
                 }
             }

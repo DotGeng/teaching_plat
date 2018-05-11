@@ -33,4 +33,16 @@ public class CriteriaUtils {
     public static StudyingMateriaProgressExample.Criteria getCriteria(StudyingMateriaProgressExample example) {
         return example.createCriteria();
     }
+
+    public static StudentExample.Criteria getCriteria(StudentExample example) {
+        return example.createCriteria();
+    }
+
+    public static StudingManagerNavExample.Criteria getCriteria(StudingManagerNavExample example) {
+        return example.createCriteria();
+    }
+
+    public static TeacherExample.Criteria getCriteria(TeacherExample example) {
+        return example.createCriteria();
+    }
 }

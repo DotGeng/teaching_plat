@@ -4,8 +4,11 @@
   <resultMap id="BaseResultMap" type="cn.cqupt.teachresource.model.StudyingMateriaProgress" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="student_no" property="studentNo" jdbcType="VARCHAR" />
     <result column="progress" property="progress" jdbcType="VARCHAR" />
     <result column="media_id" property="mediaId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, student_id, progress, media_id
+    id, student_id, student_no, progress, media_id, create_time, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.cqupt.teachresource.model.StudyingMateriaProgressExample" >
     select
@@ -100,10 +103,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.cqupt.teachresource.model.StudyingMateriaProgress" >
-    insert into studying_materia_progress (id, student_id, progress, 
-      media_id)
-    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{progress,jdbcType=VARCHAR}, 
-      #{mediaId,jdbcType=INTEGER})
+    insert into studying_materia_progress (id, student_id, student_no, 
+      progress, media_id, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{studentNo,jdbcType=VARCHAR}, 
+      #{progress,jdbcType=VARCHAR}, #{mediaId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.cqupt.teachresource.model.StudyingMateriaProgress" >
     insert into studying_materia_progress
@@ -114,11 +119,20 @@
       <if test="studentId != null" >
         student_id,
       </if>
+      <if test="studentNo != null" >
+        student_no,
+      </if>
       <if test="progress != null" >
         progress,
       </if>
       <if test="mediaId != null" >
         media_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -128,11 +142,20 @@
       <if test="studentId != null" >
         #{studentId,jdbcType=INTEGER},
       </if>
+      <if test="studentNo != null" >
+        #{studentNo,jdbcType=VARCHAR},
+      </if>
       <if test="progress != null" >
         #{progress,jdbcType=VARCHAR},
       </if>
       <if test="mediaId != null" >
         #{mediaId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -151,11 +174,20 @@
       <if test="record.studentId != null" >
         student_id = #{record.studentId,jdbcType=INTEGER},
       </if>
+      <if test="record.studentNo != null" >
+        student_no = #{record.studentNo,jdbcType=VARCHAR},
+      </if>
       <if test="record.progress != null" >
         progress = #{record.progress,jdbcType=VARCHAR},
       </if>
       <if test="record.mediaId != null" >
         media_id = #{record.mediaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -166,8 +198,11 @@
     update studying_materia_progress
     set id = #{record.id,jdbcType=INTEGER},
       student_id = #{record.studentId,jdbcType=INTEGER},
+      student_no = #{record.studentNo,jdbcType=VARCHAR},
       progress = #{record.progress,jdbcType=VARCHAR},
-      media_id = #{record.mediaId,jdbcType=INTEGER}
+      media_id = #{record.mediaId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -178,11 +213,20 @@
       <if test="studentId != null" >
         student_id = #{studentId,jdbcType=INTEGER},
       </if>
+      <if test="studentNo != null" >
+        student_no = #{studentNo,jdbcType=VARCHAR},
+      </if>
       <if test="progress != null" >
         progress = #{progress,jdbcType=VARCHAR},
       </if>
       <if test="mediaId != null" >
         media_id = #{mediaId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -190,8 +234,11 @@
   <update id="updateByPrimaryKey" parameterType="cn.cqupt.teachresource.model.StudyingMateriaProgress" >
     update studying_materia_progress
     set student_id = #{studentId,jdbcType=INTEGER},
+      student_no = #{studentNo,jdbcType=VARCHAR},
       progress = #{progress,jdbcType=VARCHAR},
-      media_id = #{mediaId,jdbcType=INTEGER}
+      media_id = #{mediaId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

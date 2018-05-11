@@ -1,9 +1,11 @@
 package cn.cqupt.teachresource.BaseParam;
 
+import cn.cqupt.teachresource.model.Teacher;
+
 /**
  * Created by YukunGeng on 2018/4/23.
  */
-public class TeacherPagingData {
+public class TeacherPagingData extends Teacher {
     private Integer page;
     private Integer rows;
     private String sort;

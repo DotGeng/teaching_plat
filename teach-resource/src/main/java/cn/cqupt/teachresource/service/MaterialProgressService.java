@@ -1,6 +1,8 @@
 package cn.cqupt.teachresource.service;
 
 import cn.cqupt.teachresource.BaseParam.MateriaProcessPragram;
+import cn.cqupt.teachresource.BaseParam.MaterialProgressPagingData;
+import cn.cqupt.teachresource.BaseParam.PagingResponse;
 
 import java.util.List;
 
@@ -9,4 +11,6 @@ import java.util.List;
  */
 public interface MaterialProgressService {
     public void setMediaProcess(MateriaProcessPragram mediaProcess);
+
+    public PagingResponse getMaterialProgressList(MaterialProgressPagingData materialProgressPagingData);
 }

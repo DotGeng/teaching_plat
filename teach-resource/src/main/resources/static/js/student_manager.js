@@ -1,21 +1,19 @@
 (function (w, d, u) {
     var colseDialog = function () {
-        $("#studying_material_article_add").form('reset');
+        $("#student_add").form('reset');
         $('#studying_material_file').val('');
         $('#studying_material_file_url_fiv_row').css("display", "none");
-        $("#studying_material_article_add_div").dialog('close');
+        $("#student_add_div").dialog('close');
     };
     var colseEditDialog = function () {
-        $("#studying_material_article_edit").form('reset');
+        $("#students_edit").form('reset');
         $('#studying_material_fileEdit').val('');
         $('#studying_material_file_url_eidt_fiv_row').css("display", "none");
-        $("#studying_material_article_edit_div").dialog('close');
+        $("#students_edit_div").dialog('close');
     };
-    $('#studying_material_searchArticle').click(function () {
-        $('#studying_material_teacher_article_manager').datagrid('load', {
-            title: $('#studying_material_articleTitle').val(),
-            createTimeBegin: $('#studying_material_createTimeBegin').val(),
-            createTimeEnd: $('#studying_material_createTimeEnd').val(),
+    $('#search_student').click(function () {
+        $('#student_list_manager').datagrid('load', {
+            title: $('#student_name').val()
         });
     });
     detailMedia = function (value, mediaType) {
@@ -29,8 +27,8 @@
         }
     }
     var tableShow = function () {
-        $('#studying_material_teacher_article_manager').datagrid({
-            url: '/studying_material/list',
+        $('#student_list_manager').datagrid({
+            url: '/static/student/list',
             fit: true,
             fitColumns: true,
             striped: true,
@@ -40,50 +38,86 @@
             pageSize: 10,
             pageList: [10, 20, 30, 40, 50],
             pageNumber: 1,
-            sortName: 'update_time',
-            sortOrder: 'desc',
-            toolbar: '#studying_material_manage_tool',
+            toolbar: '#students_manage_tool',
             columns: [[
-                {field: 'id', title: 'id', width: 100, checkbox: true},
-                {field: 'title', title: '题目', width: 100},
-                {field: 'materialDesc', title: '内容简介', width: 100},
-                {field: 'roleFormat', title: '内容类型', width: 100},
-                {field: 'createTimeFormat', title: '创建时间', width: 100, align: 'right'},
-                {field: 'updateTimeFormat', title: '修改时间', width: 100, align: 'right'},
+                {field: 'studentid', title: 'id', width: 100, checkbox: true},
+                {field: 'studentno', title: '学号', width: 100},
+                {field: 'studclass', title: '班级', width: 100},
+                {field: 'studentname', title: '姓名', width: 100},
+                {field: 'studentpw', title: '密码', width: 100, align: 'right'},
+                {field: 'major', title: '专业', width: 100, align: 'right'},
+                {field: 'colledge', title: '学院', width: 100, align: 'right'},
                 {
-                    field: 'mediaId', title: '详情', width: 100, formatter: function (value, row, index) {
-                    return '<a style="color:blue" onclick="detailMedia(' + value + ',' + row.type + ');">查看</a>';
+                    field: 'passed',
+                    title: '是否通过',
+                    width: 100,
+                    align: 'right',
+                    formatter: function (value, row, index) {
+                        if (value == 1) {
+                            return '通过';
+                        } else {
+                            return '不通过';
+                        }
+                    }
+                },
+                {field: 'score', title: '分数', width: 100, align: 'right'},
+                {field: 'examtimes', title: '考试次数', width: 100, align: 'right'},
+                {
+                    field: 'ischeated',
+                    title: '是否作弊',
+                    width: 100,
+                    align: 'right',
+                    formatter: function (value, row, index) {
+                        if (value == 1) {
+                            return '是';
+                        } else {
+                            return '无';
+                        }
+                    }
                 }
-                }
+
+
             ]],
         });
     }
     var page = {
         init: function () {
             tableShow();
-            $('#studying_material_article_add_div').dialog({
+            $('#student_add_div').dialog({
                 width: 400,
-                title: '文章添加',
+                title: '学生添加',
                 modal: true,
                 closed: true,
                 buttons: [{
                     text: '新增',
                     iconCls: 'icon-add',
                     handler: function () {
-                        if ($('#studying_material_article_add').form('validate')) {
+                        if ($('#student_add').form('validate')) {
                             // 把数据写到数据库里边
-                            var title = $('#studying_material_articleName').val();
-                            var materialDesc = $('#studying_material_articleDscrp').val();
-                            var url = $('#studying_material_fileUrl').attr("href");
-                            var type = $('#media_add_type').val();
+                            var studentno = $('#student_add_no').val();
+                            var studclass = $('#student_add_class').val();
+                            var studentname = $('#student_add_name').val();
+                            var studentpw = $('#student_add_pwd').val();
+                            var major = $('#student_add_major').val();
+                            var colledge = $('#student_add_colledge').val();
+                            var passed = $('#student_add_passed').val();
+                            var score = $('#student_add_score').val();
+                            var examtimes = $('#student_add_exam_time').val();
+                            var ischeated = $('#student_add_is_cheated').val();
                             $.ajax({
                                 url: "/media/info/adding",
                                 type: 'post',
                                 data: {
-                                    title: title,
-                                    materialDesc: materialDesc,
-                                    url: url,
-                                    type: type
+                                    studentno: studentno,
+                                    studclass: studclass,
+                                    studentname: studentname,
+                                    studentpw: studentpw,
+                                    major: major,
+                                    colledge: colledge,
+                                    passed: studentpw,
+                                    studentpw: studentpw,
+                                    studentpw: studentpw,
+                                    studentpw: studentpw,
                                 },
                                 success: function (result) {
                                     $.messager.alert("消息", "提交成功");
@@ -109,7 +143,7 @@
                     }
                 }],
             });
-            $('#studying_material_article_edit_div').dialog({
+            $('#students_edit_div').dialog({
                 width: 400,
                 title: '文章修改',
                 modal: true,
@@ -118,22 +152,33 @@
                     text: '修改',
                     iconCls: 'icon-edit',
                     handler: function () {
-                        if ($('#studying_material_article_edit').form('validate')) {
+                        if ($('#students_edit').form('validate')) {
                             // 把数据写到数据库里边
-                            var id = $('#studying_material_id').val();
-                            var title = $('#studying_material_articleEditName').val();
-                            var materialDesc = $('#studying_material_articleEditDscrp').val();
-                            var url = $('#studying_material_fileEidtUrl').attr("href");
-                            var type = $('#media_type').val();
+                            var studentid = $('#student_id').val();
+                            var studentno = $('#student_no').val();
+                            var studclass = $('#student_class').val();
+                            var studentname = $('#student_edit_name').val();
+                            var studentpw = $('#student_edit_pwd').val();
+                            var major = $('#student_edit_major').val();
+                            var colledge = $('#student_edit_colledge').val();
+                            var passed = $('#student_edit_passed').val();
+                            var score = $('#student_edit_score').val();
+                            var examtimes = $('#student_edit_exam_time').val();
+                            var ischeated = $('#student_edit_is_cheated').val();
                             $.ajax({
-                                url: "/id/media/editing",
+                                url: "/student/manager/edit",
                                 type: 'post',
                                 data: {
-                                    id: id,
-                                    title: title,
-                                    materialDesc: materialDesc,
-                                    url: url,
-                                    type: type
+                                    studentid: studentid,
+                                    studentno: studentno,
+                                    studclass: studclass,
+                                    studentname: studentname,
+                                    studentpw: studentpw,
+                                    major: major,
+                                    colledge: colledge,
+                                    passed: passed,
+                                    examtimes: examtimes,
+                                    ischeated: ischeated
                                 },
                                 success: function (result) {
                                     $.messager.alert("消息", "提交成功");
@@ -162,79 +207,50 @@
             /// 验证
             $('input[name="input_add"]').validatebox({
                 required: true,
-                missingMessage: "请输入文章主题",
+                missingMessage: "请输入学生学号",
                 invalidMessage: "",
             });
             manage_tool = {
                 add: function () {
-                    $("#studying_material_article_add_div").dialog('open');
+                    $("#student_add_div").dialog('open');
                 },
                 edit: function () {
-                    var rows = $('#studying_material_teacher_article_manager').datagrid('getSelections');
+                    var rows = $('#student_list_manager').datagrid('getSelections');
                     if (rows.length > 1) {
                         $.messager.alert("警告", "编辑记录只能选择一条");
                     } else if (rows.length == 1) {
                         $.ajax({
-                            url: "/studying_material/specific",
+                            url: "/id/student/specific",
                             type: 'post',
                             data: {
-                                id: rows[0].id,
-                                /*title: rows[0].title,
-                                 materialDesc: rows[0].materialDesc,
-                                 roleFormat: rows[0].roleFormat,
-                                 updateTimeFormat: rows[0].updateTimeFormat*/
+                                studentid: rows[0].studentid
                             },
                             beforeSend: function () {
                                 $.messager.progress({
-                                    text: '正在请求数据',
+                                    text: '正在请求数据'
                                 });
                             },
                             success: function (result) {
                                 $.messager.progress('close');
                                 if (result.content) {
                                     var obj = result.content;
-                                    $('#studying_material_article_edit_div').dialog('open');
-                                    $('#studying_material_id').val(obj.id);
-                                    $('#studying_material_articleEditName').val(obj.title);
-                                    $('#studying_material_articleEditDscrp').val(obj.materialDesc);
-                                    $('#media_type').val(obj.type);
-                                    $('#studying_material_fileEidtUrl').attr('href', obj.url);
-                                    var arr = result.content.url.split('/');
-                                    var delStr = '/file/deleting?fileName=' + arr[arr.length - 1];
-                                    $('#studying_material_file_url_eidt_fiv_row').css({
-                                        display: 'block',
-                                        margin: 0,
-                                        padding: '5px 0 0 25px'
-                                    });
-
-                                    $('#studying_material_deletFileEditUrl').click(function () {
-                                        $.ajax({
-                                            type: 'get',
-                                            url: delStr,
-                                            success: function (result) {
-                                                $('#studying_material_fileEdit').val('');
-                                                $('#studying_material_file_url_eidt_fiv_row').css("display", 'none');
-                                                $.messager.show({
-                                                    title: '我的消息',
-                                                    msg: '文件删除成功',
-                                                    timeout: 5000,
-                                                    showType: 'slide'
-                                                });
-                                            },
-                                            error: function (result) {
-                                                $.messager.show({
-                                                    title: '我的消息',
-                                                    msg: '文件删除失败，请稍后重试',
-                                                    timeout: 5000,
-                                                    showType: 'slide'
-                                                });
-                                            }
-                                        });
-                                    })
+                                    $('#students_edit_div').dialog('open');
+                                    $('#student_id').val(obj.studentid);
+                                    $('#student_no').val(obj.studentno);
+                                    $('#student_class').val(obj.studclass);
+                                    $('#student_edit_name').val(obj.studentname);
+                                    $('#student_edit_pwd').val(obj.studentpw);
+                                    $('#student_edit_major').val(obj.major);
+                                    $('#student_edit_colledge').val(obj.colledge);
+                                    $('#student_edit_passed').val(obj.passed);
+                                    $('#student_edit_score').val(obj.score);
+                                    $('#student_edit_exam_time').val(obj.examtimes);
+                                    $('#student_edit_is_cheated').val(obj.ischeated);
                                 }
                             },
                             error: function (result) {
                                 $.messager.alert('获取失败', '未知原因导致数据获取失败');
+                                $.messager.progress('close');
                             }
 
                         })
@@ -243,28 +259,28 @@
                     }
                 },
                 remove: function () {
-                    var rows = $('#studying_material_teacher_article_manager').datagrid('getSelections');
+                    var rows = $('#student_list_manager').datagrid('getSelections');
                     if (rows.length > 0) {
                         $.messager.confirm('确认操作', '确定要删除选中记录吗？', function (flag) {
                             if (flag) {
                                 var ids = [];
                                 for (var i = 0; i < rows.length; i++) {
-                                    ids.push(rows[i].id);
+                                    ids.push(rows[i].studentid);
                                 }
                                 $.ajax({
                                     type: 'post',
-                                    url: '/studying_material/deleting',
+                                    url: '/students/manager/deleting',
                                     data: {
                                         ids: ids.join(','),
                                     },
                                     beforeSend: function () {
-                                        $('#studying_material_teacher_article_manager').datagrid('loading');
+                                        $('#student_list_manager').datagrid('loading');
                                     },
                                     success: function (result) {
                                         if (result.content) {
-                                            $('#studying_material_teacher_article_manager').datagrid('loaded');
-                                            $('#studying_material_teacher_article_manager').datagrid('load');
-                                            $('#studying_material_teacher_article_manager').datagrid('unselectAll');
+                                            $('#student_list_manager').datagrid('loaded');
+                                            $('#student_list_manager').datagrid('load');
+                                            $('#student_list_manager').datagrid('unselectAll');
                                         }
                                         $.messager.show({
                                             title: '提示',
@@ -279,10 +295,10 @@
                     }
                 },
                 reload: function () {
-                    $("#studying_material_teacher_article_manager").datagrid('reload');
+                    $("#student_list_manager").datagrid('reload');
                 },
                 redo: function () {
-                    $("#studying_material_teacher_article_manager").datagrid('unselectAll');
+                    $("#student_list_manager").datagrid('unselectAll');
                 }
 
             };
@@ -395,5 +411,3 @@
     page.init();
 
 })(window, document);
-
-

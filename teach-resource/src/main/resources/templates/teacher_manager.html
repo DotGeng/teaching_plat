@@ -1,0 +1,57 @@
+<div id="teachers_manage_tool" style="padding: 5px">
+    <div>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="ture" , onclick="manage_tool.add();">添加</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="ture" , onclick="manage_tool.edit();">修改</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="ture" ,
+           onclick="manage_tool.remove();">删除</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="ture" ,style="display: none"
+           onclick="manage_tool.reload();">刷新</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-redo" plain="ture" , style="" onclick="manage_tool.redo();">取消选择</a>
+    </div>
+    <div style="padding: 0 0 0 7px; color: #333;">
+        教师姓名:<input id="teacher_search_name" type="text" class="textbox" name="article"
+                    style="width: 110px"/>
+
+        <a href="javascripr:void(0);" id="search_teacher" class="easyui-linkbutton"
+           iconCls="icon-search">查询</a>
+    </div>
+</div>
+<table id="teacher_list_manager"></table>
+<!--<div id="studying_material_dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;">-->
+<div id="teacher_add_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="teacher_add" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <p>姓名:<input id="teacher_add_name" class="text" type="text" name="input_add" data-options=""
+                     style="width: 200px;"/>
+        </p>
+        <p>密码:<textarea id="teacher_add_pwd" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>
+            角色:<select id="teacher_role" class="easyui-combobox" name="teacherRole"
+                       style="width: 200px;">
+            <option value="1">普通教师</option>
+            <option value="2">超级管理员</option>
+        </select>
+        </p>
+    </form>
+
+</div>
+
+<div id="teachers_edit_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="teachers_edit" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <input id="teacher_id" class="text" type="text" name="input_add" data-options=""
+               style="width: 200px;display: none" disabled="disabled"/>
+        <p>姓名:<input id="teacher_edit_name" class="text" type="text" name="input_add" data-options=""
+                     style="width: 200px;"/>
+        </p>
+        <p>密码:<textarea id="teacher_edit_pwd" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>
+            角色:<select id="teacher_edit_role" class="easyui-combobox" name="teacherRole"
+                       style="width: 200px;">
+            <option value="1">普通教师</option>
+            <option value="2">超级管理员</option>
+        </select>
+        </p>
+    </form>
+</div>
+<script type="text/javascript" src="/js/teacher_manager.js"></script>

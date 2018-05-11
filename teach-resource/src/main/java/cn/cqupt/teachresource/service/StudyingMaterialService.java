@@ -17,5 +17,7 @@ public interface StudyingMaterialService {
 
     boolean deleteMedia(List<Integer> ids);
 
+    boolean addMedia(StudyingMaterial studyingMaterial);
+
     boolean editingMedia(StudingMaterialFormat studyingMaterialFormat);
 }

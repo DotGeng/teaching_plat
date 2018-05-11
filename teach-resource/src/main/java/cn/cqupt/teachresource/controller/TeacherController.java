@@ -73,4 +73,13 @@ public class TeacherController extends BaseController {
         return articleService.getArticles(pageData);
     }
 
+    @RequestMapping(value = "/teacher/account/edit", method = RequestMethod.POST)
+    public ResponseStatus editTeacherAccount(Teacher teacher) {
+        if (teacherService.updateTeacherAccount(teacher)) {
+            return success("ok", "");
+        }
+        return error("error");
+    }
+
+
 }

@@ -17,4 +17,6 @@ public interface StudyingMaterialDao {
     public boolean deleteMedia(List<Integer> ids);
 
     boolean editingMedia(StudyingMaterial studyingMaterial);
+
+    boolean addMedia(StudyingMaterial material);
 }

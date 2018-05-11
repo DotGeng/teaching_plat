@@ -4,7 +4,9 @@ import cn.cqupt.teachresource.model.Teacher;
 import cn.cqupt.teachresource.model.TeacherExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TeacherMapper {
     int countByExample(TeacherExample example);
 

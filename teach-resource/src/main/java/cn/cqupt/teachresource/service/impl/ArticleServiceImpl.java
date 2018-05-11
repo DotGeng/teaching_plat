@@ -35,7 +35,6 @@ public class ArticleServiceImpl implements ArticleService {
         //String orderBy = "modify_time" + " desc";//按照排序字段 倒序 排序
         PageHelper.startPage(pagedate.getPage(), pagedate.getRows());
         PageHelper.orderBy("modify_time desc");
-        //PagingResponse pr = visitorDao.getVisitorList(null);
         PagingResponse pagingResponse = articleDao.getArticleList(pagedate);
         return pagingResponse;
     }

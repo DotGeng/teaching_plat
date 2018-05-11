@@ -60,12 +60,19 @@
                enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
         </table>-->
-        <table tableName="studying_material" domainObjectName="StudyingMaterial" enableCountByExample="true"
+        <!--<table tableName="studying_material" domainObjectName="StudyingMaterial" enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
-        </table>
+        </table>-->
         <table tableName="studying_materia_progress" domainObjectName="StudyingMateriaProgress"
                enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+<!--        <table tableName="student" domainObjectName="Student"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
+
+        <!--<table tableName="studing_manager_nav" domainObjectName="StudingManagerNav"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
     </context>
 </generatorConfiguration>

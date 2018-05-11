@@ -1,0 +1,111 @@
+<div id="students_manage_tool" style="padding: 5px">
+    <div>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="ture" , onclick="manage_tool.add();">添加</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="ture" , onclick="manage_tool.edit();">修改</a>
+        <!-- <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="ture" ,
+            onclick="manage_tool.remove();">删除</a>-->
+        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="ture" ,style="display: none"
+           onclick="manage_tool.reload();">刷新</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-redo" plain="ture" , style="" onclick="manage_tool.redo();">取消选择</a>
+    </div>
+    <div style="padding: 0 0 0 7px; color: #333;">
+        学生学号:<input id="student_search_no" type="text" class="textbox" name="article"
+                    style="width: 110px"/>
+
+        <a href="javascripr:void(0);" id="search_student" class="easyui-linkbutton"
+           iconCls="icon-search">查询</a>
+    </div>
+</div>
+<table id="student_list_manager"></table>
+<!--<div id="studying_material_dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;">-->
+<div id="student_add_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="student_add" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <p>学号:<input id="student_add_no" class="text" type="text" name="input_add" data-options=""
+                     style="width: 200px;"/>
+        </p>
+        <p>班级:<textarea id="student_add_class" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>姓名:<textarea id="student_add_name" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>密码:<textarea id="student_add_pwd" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>专业:<textarea id="student_add_major" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>学院:<textarea id="student_add_colledge" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>是否通过：<select id="student_add_passed" class="easyui-combobox" name="dept" style="width:200px;">
+            <option value="0" selected="selected">不通过</option>
+            <option value="1">通过</option>
+        </select></p>
+        <p>分数:<textarea id="student_add_score" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>考试次数:<textarea id="student_add_exam_time" class="text" name="message"
+                          style="width: 200px;"/></p>
+        <p>是否作弊：<select id="student_add_is_cheated" class="easyui-combobox" name="dept" style="width:200px;">
+            <option value="0" selected="selected">否</option>
+            <option value="1">是</option>
+        </select></p>
+    </form>
+    <table>
+        <tr>
+            <th><!-- 上传文件请应一个非常纯净的form，避免出错-->
+                <form id="studying_material_uploadForm" enctype="multipart/form-data"
+                      style="margin:0;padding: 5px 0 0 25px;color: #333;Float:left ">
+                    <p>资料上传:<input id="studying_material_file" type="file" style="width: 150px" name="file"/></p>
+                </form>
+            </th>
+            <th>
+                <div id="studying_material_upload_file_form" style="margin:0;">
+                    <button value="上传" id="studying_material_file_upload">上传</button>
+                </div>
+            </th>
+        </tr>
+        <tr id="studying_material_file_url_fiv_row" style="display: none;margin:0;padding: 5px 0 0 25px;">
+            <td align="right">
+                <div align="right">
+                    <a id="studying_material_fileUrl" download="">查看资料</a>
+                </div>
+            </td>
+            <td>
+                <div align="right">
+                    <a id="studying_material_deletFileUrl" href="javascript:void(0);">删除资料</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div id="students_edit_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="students_edit" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <input id="student_id" class="text" type="text" name="input_add" data-options=""
+               style="width: 200px;display: none" disabled="disabled"/>
+        <p>学号:<input id="student_no" class="text" type="text" name="input_add" data-options=""
+                     style="width: 200px;" disabled="disabled"/>
+        </p>
+        <p>班级:<textarea id="student_class" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>姓名:<textarea id="student_edit_name" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>密码:<textarea id="student_edit_pwd" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>专业:<textarea id="student_edit_major" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>学院:<textarea id="student_edit_colledge" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>是否通过：<select id="student_edit_passed" class="easyui-combobox" name="dept" style="width:200px;">
+            <option value="0" selected="selected">不通过</option>
+            <option value="1">通过</option>
+        </select></p>
+        <p>分数:<textarea id="student_edit_score" class="text" name="message"
+                        style="width: 200px;"/></p>
+        <p>考试次数:<textarea id="student_edit_exam_time" class="text" name="message"
+                          style="width: 200px;"/></p>
+        <p>是否作弊：<select id="student_edit_is_cheated" class="easyui-combobox" name="dept" style="width:200px;">
+            <option value="0" selected="selected">否</option>
+            <option value="1">是</option>
+        </select></p>
+    </form>
+
+</div>
+<script type="text/javascript" src="/js/student_manager.js"></script>

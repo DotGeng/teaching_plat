@@ -1,9 +1,6 @@
 package cn.cqupt.teachresource.controller;
 
-import cn.cqupt.teachresource.BaseParam.MateriaProcessPragram;
-import cn.cqupt.teachresource.BaseParam.PagingResponse;
-import cn.cqupt.teachresource.BaseParam.StudingMaterialFormat;
-import cn.cqupt.teachresource.BaseParam.StudyingMaterialPagingData;
+import cn.cqupt.teachresource.BaseParam.*;
 import cn.cqupt.teachresource.BashStatus.ResponseStatus;
 import cn.cqupt.teachresource.TeacherVo;
 import cn.cqupt.teachresource.model.StudingTeacherNav;
@@ -98,5 +95,19 @@ public class StudingTeacherController extends BaseController {
             return success("ok", "");
         }
         return error("error");
+    }
+
+    @RequestMapping(value = "/media/info/adding", method = RequestMethod.POST)
+    public ResponseStatus addStudyingMaterial(StudyingMaterial studingMaterial) {
+        if (studyingMaterialService.addMedia(studingMaterial)) {
+            return success("ok", "");
+        }
+        return error("error");
+    }
+
+    @RequestMapping(value = "/media/progress/list", method = RequestMethod.POST)
+    public PagingResponse getMediaProgressList(MaterialProgressPagingData materialProgressPagingData) {
+        PagingResponse pr = materialProgressService.getMaterialProgressList(materialProgressPagingData);
+        return pr;
     }
 }
