@@ -36,13 +36,11 @@ public class ArticleDaoImpl implements ArticleDao {
         }
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         if (teacherPagingData.getCreateTimeBegin() != null && teacherPagingData.getCreateTimeBegin() != "") {
-
             try {
                 criteria.andCreateTimeGreaterThan(format.parse(teacherPagingData.getCreateTimeBegin()));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-
         }
         if (teacherPagingData.getCreateTimeEnd() != null && teacherPagingData.getCreateTimeEnd() != "") {
             try {

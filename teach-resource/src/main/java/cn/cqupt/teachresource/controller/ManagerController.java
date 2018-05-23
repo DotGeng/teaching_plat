@@ -4,14 +4,8 @@ import cn.cqupt.teachresource.BaseParam.PagingResponse;
 import cn.cqupt.teachresource.BaseParam.StudentPagingData;
 import cn.cqupt.teachresource.BaseParam.TeacherPagingData;
 import cn.cqupt.teachresource.BashStatus.ResponseStatus;
-import cn.cqupt.teachresource.model.ManagerNav;
-import cn.cqupt.teachresource.model.Student;
-import cn.cqupt.teachresource.model.Teacher;
-import cn.cqupt.teachresource.model.TeacherNav;
-import cn.cqupt.teachresource.service.ArticleService;
-import cn.cqupt.teachresource.service.ManagerNavService;
-import cn.cqupt.teachresource.service.StudentService;
-import cn.cqupt.teachresource.service.TeacherService;
+import cn.cqupt.teachresource.model.*;
+import cn.cqupt.teachresource.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +29,8 @@ public class ManagerController extends BaseController {
     StudentService studentService;
     @Autowired
     TeacherService teacherService;
+    @Autowired
+    ReportManagerNavService reportManagerNavService;
 
     @RequestMapping(value = "/manager/nav/create", method = RequestMethod.POST)
     public List<ManagerNav> getManagerNav(ManagerNav managerNav) {
@@ -131,5 +127,10 @@ public class ManagerController extends BaseController {
         }
         int count = teacherService.deletingTeachers(idsInt);
         return success("ok", count);
+    }
+
+    @RequestMapping(value = "/report/manager/navs", method = RequestMethod.POST)
+    public List<ReportManagerNav> getReportManagerNavs(ReportManagerNav reportManagerNav) {
+        return reportManagerNavService.getReportManagerNavs(reportManagerNav);
     }
 }

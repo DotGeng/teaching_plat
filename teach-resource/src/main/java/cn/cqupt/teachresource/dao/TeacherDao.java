@@ -21,4 +21,6 @@ public interface TeacherDao {
     boolean editingTeacher(Teacher teacher);
 
     Integer deletingTeachers(List<Integer> ids);
+
+    Integer getTeacherIdByTeacherName(String teacherName);
 }

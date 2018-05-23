@@ -1,0 +1,55 @@
+<div id="manage_tool" style="padding: 5px">
+    <div>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="ture" , onclick="manage_tool.add();">添加</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="ture" , onclick="manage_tool.edit();">修改</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="ture" ,
+           onclick="manage_tool.remove();">删除</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="ture" ,style="display: none"
+           onclick="manage_tool.reload();">刷新</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-redo" plain="ture" , style="" onclick="manage_tool.redo();">取消选择</a>
+    </div>
+    <div style="padding: 0 0 0 7px; color: #333;">
+        查询报告主题:<input id="reportTitle" type="text" class="textbox" name="report" style="width: 110px"/>
+        创建时间从：<input id="createTimeBegin" type="text" class="easyui-datebox" name="data-from" style="width:110px"/>
+        到：<input id="createTimeEnd" type="text" class="easyui-datebox" name="data-to" style="width:110px"/>
+        <a href="javascripr:void(0);" id="searchreport" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+    </div>
+</div>
+<table id="teacher_report_manager"></table>
+<!--<div id="dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;">-->
+<div id="report_add_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="report_add" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <p>实验报告主题:<input id="reportName" class="text" type="text" name="input_add" data-options="required:true"
+                         style="width: 200px;"/>
+        </p>
+    </form>
+</div>
+<div id="question_add_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <table id="quesion_add_table">
+        <tr>
+            <td>题目:</td>
+            <td>
+                <script id="editor" type="text/plain" style="width:1024px;height:500px;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button value="添加题目"></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="report_edit_div" class="easyui-dialog" title="My Dialog" style="width:400px;">
+    <form id="report_edit" style="margin:0;padding: 5px 0 0 25px;color: #333;">
+        <input id="id" class="text" type="text" name="input_add" data-options=""
+               style="width: 200px;display: none" disabled="disabled"/>
+        <p>文章主题:<input id="reportEditName" class="text" type="text" name="input_add" data-options=""
+                       style="width: 200px;"/>
+        </p>
+        <p>文章描述:<textarea id="reportEditDscrp" class="text-area" name="message" style="width: 200px;"/></p>
+    </form>
+
+    <p style="display: none">文件路径:<input type="text" data-options="required:true" id="file-path"/></p>
+</div>
+
+<script type="text/javascript" src="/js/report_manager.js"></script>

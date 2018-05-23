@@ -1,6 +1,8 @@
 package cn.cqupt.teachresource.controller;
 
 import cn.cqupt.teachresource.BaseParam.ArticleResponse;
+import cn.cqupt.teachresource.BaseParam.PagingResponse;
+import cn.cqupt.teachresource.BaseParam.TeacherPagingData;
 import cn.cqupt.teachresource.BashStatus.ResponseStatus;
 import cn.cqupt.teachresource.model.Article;
 import cn.cqupt.teachresource.service.ArticleService;
@@ -90,6 +92,11 @@ public class ArticileController extends BaseController {
         }
         int count = articleService.deleteArticles(idsInt);
         return success("ok", count);
+    }
+
+    @RequestMapping(value = "/article/list", method = RequestMethod.POST)
+    public PagingResponse getArticleList(TeacherPagingData pageData) {
+        return articleService.getArticles(pageData);
     }
 
 }

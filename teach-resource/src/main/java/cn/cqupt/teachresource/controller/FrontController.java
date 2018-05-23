@@ -25,15 +25,11 @@ public class FrontController {
         return "/managerIndex";
     }
 
-    @RequestMapping("/static/resource/teacher/article/manager")
+    @RequestMapping("/article/manager")
     public String getArticleAddForTeacher() {
         return "/teacher_article_manger";
     }
 
-    @RequestMapping("/static/resource/manager/article/manager")
-    public String getArticleAddForManager() {
-        return "/teacher_article_manger";
-    }
 
     @RequestMapping("/static/test")
     public String mytest() {
@@ -54,9 +50,24 @@ public class FrontController {
     public String databaseBackup() {
         return "/database-backup";
     }
+
     @RequestMapping("/static/database/restore")
     public String databaseRestore() {
         return "/database-restore";
     }
 
+    @RequestMapping("/static/experiment/index")
+    public String getIndexExperimentIndex() {
+        return "/experiment_report_index";
+    }
+
+    @RequestMapping("/static/report/manager")
+    public String getReportsManager() {
+        return "/report_manager";
+    }
+
+    @RequestMapping("/test/UEditor")
+    public String getTestEditor() {
+        return "/index";
+    }
 }

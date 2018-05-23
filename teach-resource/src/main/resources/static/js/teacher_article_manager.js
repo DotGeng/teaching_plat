@@ -20,7 +20,7 @@
     });
     var tableShow = function () {
         $('#teacher_article_manager').datagrid({
-            url: 'article/list',
+            url: '/article/list',
             fit: true,
             fitColumns: true,
             striped: true,

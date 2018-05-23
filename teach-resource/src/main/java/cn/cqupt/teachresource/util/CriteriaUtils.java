@@ -45,4 +45,11 @@ public class CriteriaUtils {
     public static TeacherExample.Criteria getCriteria(TeacherExample example) {
         return example.createCriteria();
     }
+
+    public static ReportManagerNavExample.Criteria getCriteria(ReportManagerNavExample example) {
+        return example.createCriteria();
+    }
+    public static ReportTemplateExample.Criteria getCriteria(ReportTemplateExample example) {
+        return example.createCriteria();
+    }
 }

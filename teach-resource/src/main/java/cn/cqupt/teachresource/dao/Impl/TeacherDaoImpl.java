@@ -73,4 +73,11 @@ public class TeacherDaoImpl implements TeacherDao {
 
         return teacherMapper.deleteByExample(example);
     }
+
+    @Override
+    public Integer getTeacherIdByTeacherName(String teacherName) {
+        TeacherExample example = new TeacherExample();
+        CriteriaUtils.getCriteria(example).andTeachernameEqualTo(teacherName);
+        return teacherMapper.selectByExample(example).get(0).getTeacherid();
+    }
 }

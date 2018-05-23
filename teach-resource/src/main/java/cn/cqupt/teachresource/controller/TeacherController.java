@@ -5,6 +5,7 @@ import cn.cqupt.teachresource.BaseParam.PagingResponse;
 import cn.cqupt.teachresource.BaseParam.RoleParam;
 import cn.cqupt.teachresource.BashStatus.ResponseStatus;
 import cn.cqupt.teachresource.TeacherVo;
+import cn.cqupt.teachresource.model.ReportManagerNav;
 import cn.cqupt.teachresource.model.Teacher;
 import cn.cqupt.teachresource.model.TeacherNav;
 import cn.cqupt.teachresource.redis.RedisService;
@@ -81,5 +82,10 @@ public class TeacherController extends BaseController {
         return error("error");
     }
 
+    @RequestMapping(value = "/report/manager/nav/create", method = RequestMethod.POST)
+    public List<ReportManagerNav> createRepostManagerNavCreate(TeacherNav teacherNav) {
+        //sad
+        return null;
+    }
 
 }
