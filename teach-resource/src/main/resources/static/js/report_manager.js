@@ -42,6 +42,52 @@
             ]],
         });
     };
+    var initQuestionDialog = function () {
+        $('#question_add_div').dialog({
+            width: 400,
+            title: '问题添加',
+            modal: true,
+            closed: true,
+            buttons: [{
+                text: '新增',
+                iconCls: 'icon-add',
+                handler: function () {
+                    if ($('#report_add').form('validate')) {
+                        // 把数据写到数据库里边
+                        var reportName = $('#reportName').val();
+                        var reportDscrp = $('#reportDscrp').val();
+                        var reportPath = $('#fileUrl').attr("href");
+                        $.ajax({
+                            url: "/report/templete/adding",
+                            type: 'post',
+                            data: {
+                                title: reportName,
+                                teacherName:sessionStorage.getItem("userName")
+                            },
+                            success: function (result) {
+                                $.messager.alert("消息", "提交成功");
+                                colseDialog();
+                                tableShow();
+                            },
+                            error: function (result) {
+                                $.messager.alert("消息", "提交失败，请稍后重试");
+                            }
+                        });
+                    }
+                }
+            }, {
+                text: '取消',
+                iconCls: 'icon-redo',
+                handler: function () {
+                    $.messager.confirm('确认', '您确认关闭对话框吗？关闭后所填写数据将被清空', function (r) {
+                        if (r) {
+                            colseDialog();
+                        }
+                    });
+                }
+            }],
+        });
+    };
     var page = {
         init: function () {
             tableShow();
@@ -67,10 +113,10 @@
                                     teacherName:sessionStorage.getItem("userName")
                                 },
                                 success: function (result) {
-                                    $.messager.alert("消息", "提交成功");
+                                    //$.messager.alert("消息", "提交成功");
                                     colseDialog();
                                     // 添加question
-
+                                    $('#question_add_div').dialog('open')
                                     // 刷新table
                                     tableShow();
                                 },
@@ -92,6 +138,7 @@
                     }
                 }],
             });
+            initQuestionDialog();
             $('#report_edit_div').dialog({
                 width: 400,
                 title: '文章修改',

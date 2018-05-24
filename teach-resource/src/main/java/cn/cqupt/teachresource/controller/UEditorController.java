@@ -18,7 +18,7 @@ public class UEditorController {
     private String showPage(){
         return "index";
     }
-    @RequestMapping(value="/config")
+    @RequestMapping(value="/js/config")
     public void config(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
         String rootPath = request.getSession().getServletContext().getRealPath("/");

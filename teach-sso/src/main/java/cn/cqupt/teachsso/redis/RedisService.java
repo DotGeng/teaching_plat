@@ -8,7 +8,7 @@ public class RedisService {
     private static RedisClient redisClient;
 
     static {
-        redisClient = new RedisClient("192.168.191.7", 6379);
+        redisClient = new RedisClient("192.168.1.102", 6379);
     }
 
     public String get(String key) {
